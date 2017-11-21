@@ -58,7 +58,7 @@
   % this way
   eyecatcher=false,
   % Number of columns
-  columns=2,
+  columns=3,
   % Column spacing
   colspacing=1em,
   % Color style
@@ -118,48 +118,50 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \headerbox{Motivation}{name=motivation,column=0,row=0}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   Bla bla bla.
-
-   \includegraphics[width=10cm]{images/wps_adamsteer}
-
-   Following points
    \begin{enumerate}\compresslist
-      \item One
-      \item Two
+     \item C3S overview and C3S Climate Data Store (CDS)
+     \item The CP4CDS project overview: ESGF Data Nodes, Index Nodes and CP4CDS Compute Nodes, load-balancing across sites, QC'd CMIP5 data.
+     \item Requirement to deploy code from other projects/groups into the CP4CDS Compute Node, such as ESMValTool.
+     \item Chosen technology: Birdhouse WPS environment
+     \item Why Birdhouse? python, open source, actively developed, good design, client/security components, PyWPS extensions.
+     \item SDDS/Compute Node overview: including PyWPS cluster configuration for scalability.
+     \item SDDS workflow: template, GitHub fork etc
+     \item Status and next steps
    \end{enumerate}
    \vspace{0.3em}
  }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{Architecture}{name=arch,column=0,below=motivation}{
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \includegraphics[width=10cm]{images/copernicus-wps}
-}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \headerbox{CP4CDS}{name=cp4cds,column=0,span=2,below=motivation}{
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    Climate Projections for the Climate Data Store (CP4CDS).
+    The Copernicus Climate Data Store (CDS) will interact with remote data and compute services,
+    amongst which will be those providing global climate projections.
+    An Earth System Grid Federation (ESGF) node and concomitant compute services
+    providing access to a coherent collection of quality assured climate projections.
+    CP4CDS will be delivered by a consortium of three of the leading European institutes
+
+    \includegraphics[width=6cm]{images/wps_adamsteer}
+
+    \begin{enumerate}\compresslist
+       \item identifying, acquiring and quality controlling the relevant data
+       \item data nodes - consisting of vanilla ESGF index and data nodes
+       \item compute nodes - based on the Web Processing Service (WPS)
+       \item SDDS - Software Dependency Deployment Solution to support the development of codes
+       \item All web-service access will require users to be authenticated and authorised
+    \end{enumerate}
+    \vspace{0.3em}
+  }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{PyWPS}{name=pywps,column=0,below=arch}{
+\headerbox{Architecture}{name=arch,column=0,below=cp4cds}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \includegraphics[width=2cm]{images/pywps}
-  \begin{enumerate}\compresslist
-     \item One
-     \item Two
-  \end{enumerate}
-  \vspace{0.3em}
+  \includegraphics[width=7cm]{images/copernicus-wps}
 }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{Docker}{name=docker,column=0,below=pywps}{
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \includegraphics[width=2cm]{images/docker}
-  \begin{enumerate}\compresslist
-     \item One
-     \item Two
-  \end{enumerate}
-  \vspace{0.3em}
-}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{References}{name=references,column=0,below=docker}{
+\headerbox{References}{name=references,column=0,below=arch}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \smaller													% Make the whole text smaller
   \vspace{-0.4em} 									% Save some space at the beginning
@@ -176,29 +178,45 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \headerbox{Scheduler Extension}{name=scheduler,column=1,row=0}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \includegraphics[width=10cm]{images/pywps-scheduler-extension}
+  \includegraphics[width=6cm]{images/pywps-scheduler-extension}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{SDDS}{name=sdds,column=1,below=scheduler}{
+\headerbox{PyWPS}{name=pywps,column=1,below=scheduler}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \includegraphics[width=4cm]{images/deployment-toolbox}
+  \includegraphics[width=2cm]{images/pywps}
+  \begin{enumerate}\compresslist
+     \item One
+     \item Two
+  \end{enumerate}
+  \vspace{0.3em}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{Run Processes}{name=run,column=1,below=sdds}{
+\headerbox{Docker}{name=docker,column=1,below=pywps}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \includegraphics[width=8cm]{images/phoenix-example}
+  \includegraphics[width=2cm]{images/docker}
+  \begin{enumerate}\compresslist
+     \item One
+     \item Two
+  \end{enumerate}
+  \vspace{0.3em}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headerbox{Run Processes}{name=run,column=1,below=docker}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \includegraphics[width=6cm]{images/phoenix-example}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \headerbox{Available Processes}{name=avail,column=1,below=run}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \includegraphics[width=8cm]{images/phoenix-copernicus-processes}
+  \includegraphics[width=6cm]{images/phoenix-copernicus-processes}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{Outlook}{name=outlook,column=1,below=avail}{
+\headerbox{Outlook}{name=outlook,column=1,span=2,below=avail}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \begin{enumerate}\compresslist
     \item One
@@ -206,9 +224,26 @@
   \end{enumerate}
 }
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headerbox{SDDS}{name=sdds,column=2,row=0}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \includegraphics[width=4cm]{images/sdds}
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{}{name=footnote,column=0,span=2,below=references}{
+\headerbox{SDDS Workflow}{name=sdds_workflow,column=2,below=sdds}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \includegraphics[width=6cm]{images/sdds-workflow}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headerbox{SDDS Update Cycle}{name=sdds_update,column=2,below=sdds_workflow}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \includegraphics[width=6cm]{images/sdds-update-cycle}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headerbox{}{name=footnote,column=0,span=3,below=references}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 ESGF F2F Meeting, San Francisco, 2017
   \includegraphics[width=5em]{images/copernicus-logo}
