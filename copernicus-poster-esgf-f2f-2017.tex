@@ -123,24 +123,9 @@
 %%% box.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{Motivation}{name=motivation,column=0,row=0}{
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   \begin{enumerate}\compresslist
-     \item C3S overview and C3S Climate Data Store (CDS)
-     \item The CP4CDS project overview: ESGF Data Nodes, Index Nodes and CP4CDS Compute Nodes, load-balancing across sites, QC'd CMIP5 data.
-     \item Requirement to deploy code from other projects/groups into the CP4CDS Compute Node, such as ESMValTool.
-     \item Chosen technology: Birdhouse WPS environment
-     \item Why Birdhouse? python, open source, actively developed, good design, client/security components, PyWPS extensions.
-     \item SDDS/Compute Node overview: including PyWPS cluster configuration for scalability.
-     \item SDDS workflow: template, GitHub fork etc
-     \item Status and next steps
-   \end{enumerate}
-   \vspace{0.3em}
- }
 
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- \headerbox{Climate Change Service}{name=c3s,column=0,span=1,below=motivation}{
+ \headerbox{Climate Change Service}{name=c3s,column=0,span=1,row=0}{
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \begin{multicols}{2}
       \includegraphics[width=0.8\linewidth]{c3s-global-average-tas}
@@ -244,11 +229,17 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{Outlook}{name=outlook,column=1,span=2,below=scheduler}{
+\headerbox{Outlook}{name=outlook,column=1,span=1,below=scheduler}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \begin{enumerate}\compresslist
-    \item One
-    \item Two
+    \item C3S overview and C3S Climate Data Store (CDS)
+    \item The CP4CDS project overview: ESGF Data Nodes, Index Nodes and CP4CDS Compute Nodes, load-balancing across sites, QC'd CMIP5 data.
+    \item Requirement to deploy code from other projects/groups into the CP4CDS Compute Node, such as ESMValTool.
+    \item Chosen technology: Birdhouse WPS environment
+    \item Why Birdhouse? python, open source, actively developed, good design, client/security components, PyWPS extensions.
+    \item SDDS/Compute Node overview: including PyWPS cluster configuration for scalability.
+    \item SDDS workflow: template, GitHub fork etc
+    \item Status and next steps
   \end{enumerate}
 }
 
@@ -281,7 +272,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \includegraphics[width=6cm]{phoenix-copernicus-processes}
 }
-
 
 \end{poster}
 
