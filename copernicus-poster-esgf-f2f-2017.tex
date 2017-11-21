@@ -1,3 +1,7 @@
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
 \documentclass[portrait,a0paper]{baposter}
 
 \usepackage{calc}
@@ -8,14 +12,17 @@
 \usepackage{url}       % For \url
 
 %\usepackage{graphicx}
-%\usepackage{multicol}
+\usepackage{multicol} % Required for multiple columns
+\setlength{\columnsep}{1.5em} % Slightly increase the space between columns
+\setlength{\columnseprule}{0mm} % No horizontal rule between columns
+
+\usepackage{tikz} % Required for flow chart
+\usetikzlibrary{calc}
 
 %\usepackage{times}
 %\usepackage{helvet}
 %\usepackage{bookman}
 \usepackage{palatino}
-
-\usetikzlibrary{calc}
 
 %%% Global Settings %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -84,8 +91,8 @@
   }
 %%% Eye Cacther %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   {
-    \includegraphics[width=5em]{images/copernicus-logo}
-    \includegraphics[width=5em]{images/c3s-logo}
+    \includegraphics[width=5em]{copernicus-logo}
+    \includegraphics[width=5em]{c3s-logo}
   }
 %%% Title %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   {\sf\bf
@@ -102,7 +109,7 @@
   }
 %%% Logo %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   {
-    \includegraphics[width=10em]{images/ipsl-logo}
+    \includegraphics[width=10em]{ipsl-logo}
   }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -135,13 +142,14 @@
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  \headerbox{Climate Change Service}{name=c3s,column=0,span=1,below=motivation}{
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \includegraphics[width=3cm]{images/c3s-global-average-tas.png}
+  \begin{multicols}{2}
+      \includegraphics[width=0.8\linewidth]{c3s-global-average-tas}
 
     \begin{enumerate}\compresslist
        \item identifying, acquiring and quality controlling the relevant data
        \item data nodes - consisting of vanilla ESGF index and data nodes
     \end{enumerate}
-    \vspace{0.3em}
+  \end{multicols}
   }
 
 
@@ -155,7 +163,7 @@
     % providing access to a coherent collection of quality assured climate projections.
     % CP4CDS will be delivered by a consortium of three of the leading European institutes
 
-    \includegraphics[width=6cm]{images/wps_adamsteer}
+    \includegraphics[width=6cm]{wps_adamsteer}
 
     \begin{enumerate}\compresslist
        \item identifying, acquiring and quality controlling the relevant data
@@ -177,7 +185,7 @@
     % providing access to a coherent collection of quality assured climate projections.
     % CP4CDS will be delivered by a consortium of three of the leading European institutes
 
-    \includegraphics[width=6cm]{images/wps_adamsteer}
+    \includegraphics[width=6cm]{wps_adamsteer}
 
     \begin{enumerate}\compresslist
        \item identifying, acquiring and quality controlling the relevant data
@@ -207,20 +215,20 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \headerbox{Architecture}{name=arch,column=1,row=0}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \includegraphics[width=7cm]{images/copernicus-wps}
+  \includegraphics[width=7cm]{copernicus-wps}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \headerbox{Technology}{name=tech,column=1,span=1,below=arch}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \includegraphics[width=2cm]{images/pywps}
+  \includegraphics[width=2cm]{pywps}
   \begin{enumerate}\compresslist
     \item One
     \item Two
   \end{enumerate}
   \vspace{0.3em}
 
-  \includegraphics[width=2cm]{images/docker}
+  \includegraphics[width=2cm]{docker}
   \begin{enumerate}\compresslist
      \item One
      \item Two
@@ -231,7 +239,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \headerbox{Scheduler Extension}{name=scheduler,column=1,below=tech}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \includegraphics[width=6cm]{images/pywps-scheduler-extension}
+  \includegraphics[width=6cm]{pywps-scheduler-extension}
 }
 
 
@@ -247,31 +255,31 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \headerbox{SDDS}{name=sdds,column=2,row=0}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \includegraphics[width=4cm]{images/sdds}
+  \includegraphics[width=4cm]{sdds}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \headerbox{SDDS Workflow}{name=sdds_workflow,column=2,below=sdds}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \includegraphics[width=6cm]{images/sdds-workflow}
+  \includegraphics[width=6cm]{sdds-workflow}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \headerbox{SDDS Update Cycle}{name=sdds_update,column=2,below=sdds_workflow}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \includegraphics[width=6cm]{images/sdds-update-cycle}
+  \includegraphics[width=6cm]{sdds-update-cycle}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \headerbox{Run Processes}{name=run,column=2,below=sdds_update}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \includegraphics[width=6cm]{images/phoenix-example}
+  \includegraphics[width=6cm]{phoenix-example}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \headerbox{Available Processes}{name=avail,column=2,below=run}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \includegraphics[width=6cm]{images/phoenix-copernicus-processes}
+  \includegraphics[width=6cm]{phoenix-copernicus-processes}
 }
 
 
