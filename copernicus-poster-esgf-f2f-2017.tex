@@ -1,33 +1,26 @@
-\documentclass[portrait,final,a0paper,fontscale=0.277]{baposter}
+\documentclass[portrait,a0paper]{baposter}
 
 \usepackage{calc}
-\usepackage{graphicx}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{relsize}
-\usepackage{multirow}
-\usepackage{rotating}
-\usepackage{bm}
-\usepackage{url}
+\usepackage{relsize}   % For \smaller
+%\usepackage{multirow}
+%\usepackage{rotating}
+%\usepackage{bm}
+\usepackage{url}       % For \url
 
-\usepackage{graphicx}
-\usepackage{multicol}
+%\usepackage{graphicx}
+%\usepackage{multicol}
 
 %\usepackage{times}
 %\usepackage{helvet}
 %\usepackage{bookman}
 \usepackage{palatino}
 
-% \newcommand{\captionfont}{\footnotesize}
-
-% \graphicspath{{images/}{../images/}}
 \usetikzlibrary{calc}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Multicol Settings
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\setlength{\columnsep}{1.5em}
-%\setlength{\columnseprule}{0mm}
+%%% Global Settings %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\graphicspath{{images/}}	% Root directory of the pictures
+%\tracingstats=2			% Enabled LaTeX logging with conditionals
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Save space in lists. Use this after the opening of the list
@@ -63,7 +56,7 @@
   % Option is left on true though the eyecatcher is not used. The reason is
   % that we have a bit nicer looking title and author formatting in the headercol
   % this way
-  eyecatcher=true,
+  eyecatcher=false,
   % Number of columns
   columns=2,
   % Column spacing
@@ -95,12 +88,11 @@
   }
 %%% Eye Cacther %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   {
-    \includegraphics[width=5em]{images/copernicus-logo}
-    \includegraphics[width=5em]{images/c3s-logo}
+
   }
 %%% Title %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   {\sf\bf
-          A Web Processing Service for Copernicus Climate Change Service
+          A Web Processing Service for\\ Copernicus Climate Change Service
   }
 %%% Authors %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   {
@@ -109,18 +101,7 @@
   }
 %%% Logo %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   {
-  % The logos are compressed a bit into a simple box to make them smaller on the result
-  % (Wasn't able to find any bigger of them.)
-  \setlength\fboxsep{0pt}
-  \setlength\fboxrule{0.5pt}
-    \fbox{
-      \begin{minipage}{10em}
-        \includegraphics[width=5em]{images/ipsl-logo}
-        \includegraphics[width=5em]{images/ipsl-logo}\\
-        \includegraphics[width=5em]{images/ipsl-logo}
-        \includegraphics[width=5em]{images/ipsl-logo}
-      \end{minipage}
-    }
+
   }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -139,6 +120,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    Bla bla bla.
 
+   \includegraphics[width=10cm]{images/wps_adamsteer}
+
    Following points
    \begin{enumerate}\compresslist
       \item One
@@ -150,31 +133,64 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \headerbox{Architecture}{name=architecture,column=0,below=motivation}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+  \includegraphics[width=10cm]{images/copernicus-wps}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{Run Processes}{name=run,column=1,row=0}{
+\headerbox{Scheduler Extension}{name=scheduler,column=0,below=architecture}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \includegraphics[width=10cm]{images/pywps-scheduler-extension}
+}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headerbox{SDDS}{name=sdds,column=1,row=0}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \includegraphics[width=5cm]{images/deployment-toolbox}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headerbox{Run Processes}{name=run,column=1,below=sdds}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \includegraphics[width=10cm]{images/phoenix-example}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \headerbox{Available Processes}{name=avail,column=1,below=run}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+  \includegraphics[width=10cm]{images/phoenix-copernicus-processes}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{Outlook}{name=outlook,column=0,below=architecture}{
+\headerbox{Outlook}{name=outlook,column=1,below=avail}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+  \begin{enumerate}\compresslist
+    \item One
+    \item Two
+  \end{enumerate}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{References}{name=references,column=1,below=avail}{
+\headerbox{References}{name=references,column=0,below=scheduler}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \smaller													% Make the whole text smaller
+  \vspace{-0.4em} 									% Save some space at the beginning
+  \bibliographystyle{plain}					% Use plain style
+  \renewcommand{\section}[2]{\vskip 0.05em}		% Omit "References" title
+  \begin{thebibliography}{1}							% Simple bibliography with widest label of 1
+    \itemsep=-0.01em										% Save space between the separation
+    \setlength{\baselineskip}{0.4em}					% Save space with longer lines
+    \bibitem{prevWork1} Laszlo Gulyas, Richard Legendi: \emph{Effects of Sample Duration on Network Statistics in Elementary Models of Dynamic Networks}, International Conference on Computational Science, Singapore (2011)
+    \bibitem{prevWork2} Laszlo Gulyas, Susan Khor, Richard Legendi and George Kampis \emph{Cumulative Properties of Elementary Dynamic Networks}, The International Sunbelt Social Network Conference XXXI (2011)
+  \end{thebibliography}
+}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headerbox{}{name=footnote,column=0,span=2,below=references}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ESGF F2F Meeting, San Francisco, 2017
+  \includegraphics[width=5em]{images/copernicus-logo}
+  \includegraphics[width=5em]{images/c3s-logo}
+  \includegraphics[width=5em]{images/ipsl-logo}
 }
 
 \end{poster}
