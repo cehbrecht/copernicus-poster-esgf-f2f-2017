@@ -53,10 +53,6 @@
   {
   % Show grid to help with alignment
   grid=true,
-  % Option is left on true though the eyecatcher is not used. The reason is
-  % that we have a bit nicer looking title and author formatting in the headercol
-  % this way
-  eyecatcher=false,
   % Number of columns
   columns=3,
   % Column spacing
@@ -75,7 +71,7 @@
   % Format of text header
   eyecatcher=true,
   headerborder=closed,
-  headerheight=0.1\textheight,
+  headerheight=0.12\textheight,
 %  textfont=\sc, An example of changing the text font
   headershape=roundedright,
   headershade=shadelr,
@@ -96,8 +92,11 @@
   }
 %%% Authors %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   {
-    \vspace{1em} S. Kindermann, A. Stephens, S. Denvil, W. Som de Cerff\\
-    {\smaller DKRZ, SFTC, IPSL, KNMI}
+    \vspace{1em} A. Stephens, S. Kindermann, S. Denvil, W. Som de Cerff\\
+    {\smaller Centre for Environmental Data Analysis (CEDA),
+    German Climate Compute Centre (DKRZ),\\
+    Institut Pierre Simon Laplace (IPSL),
+    Royal Netherlands Meteorological Institute (KNMI)}
   }
 %%% Logo %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   {
@@ -132,14 +131,36 @@
  }
 
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- \headerbox{CP4CDS}{name=cp4cds,column=0,span=2,below=motivation}{
+ \headerbox{Climate Data Store}{name=cds,column=0,span=1,below=motivation}{
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    Climate Projections for the Climate Data Store (CP4CDS).
-    The Copernicus Climate Data Store (CDS) will interact with remote data and compute services,
-    amongst which will be those providing global climate projections.
-    An Earth System Grid Federation (ESGF) node and concomitant compute services
-    providing access to a coherent collection of quality assured climate projections.
-    CP4CDS will be delivered by a consortium of three of the leading European institutes
+    % Climate Projections for the Climate Data Store (CP4CDS).
+    % The Copernicus Climate Data Store (CDS) will interact with remote data and compute services,
+    % amongst which will be those providing global climate projections.
+    % An Earth System Grid Federation (ESGF) node and concomitant compute services
+    % providing access to a coherent collection of quality assured climate projections.
+    % CP4CDS will be delivered by a consortium of three of the leading European institutes
+
+    \includegraphics[width=6cm]{images/wps_adamsteer}
+
+    \begin{enumerate}\compresslist
+       \item identifying, acquiring and quality controlling the relevant data
+       \item data nodes - consisting of vanilla ESGF index and data nodes
+       \item compute nodes - based on the Web Processing Service (WPS)
+       \item SDDS - Software Dependency Deployment Solution to support the development of codes
+       \item All web-service access will require users to be authenticated and authorised
+    \end{enumerate}
+    \vspace{0.3em}
+  }
+
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \headerbox{CP4CDS}{name=cp4cds,column=0,span=1,below=cds}{
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % Climate Projections for the Climate Data Store (CP4CDS).
+    % The Copernicus Climate Data Store (CDS) will interact with remote data and compute services,
+    % amongst which will be those providing global climate projections.
+    % An Earth System Grid Federation (ESGF) node and concomitant compute services
+    % providing access to a coherent collection of quality assured climate projections.
+    % CP4CDS will be delivered by a consortium of three of the leading European institutes
 
     \includegraphics[width=6cm]{images/wps_adamsteer}
 
@@ -154,14 +175,7 @@
   }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{Architecture}{name=arch,column=0,below=cp4cds}{
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \includegraphics[width=7cm]{images/copernicus-wps}
-}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{References}{name=references,column=0,below=arch}{
+\headerbox{References}{name=references,column=0,below=cp4cds}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \smaller													% Make the whole text smaller
   \vspace{-0.4em} 									% Save some space at the beginning
@@ -176,25 +190,21 @@
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{Scheduler Extension}{name=scheduler,column=1,row=0}{
+\headerbox{Architecture}{name=arch,column=1,row=0}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \includegraphics[width=6cm]{images/pywps-scheduler-extension}
+  \includegraphics[width=7cm]{images/copernicus-wps}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{PyWPS}{name=pywps,column=1,below=scheduler}{
+\headerbox{Technology}{name=tech,column=1,span=1,below=arch}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \includegraphics[width=2cm]{images/pywps}
   \begin{enumerate}\compresslist
-     \item One
-     \item Two
+    \item One
+    \item Two
   \end{enumerate}
   \vspace{0.3em}
-}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{Docker}{name=docker,column=1,below=pywps}{
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \includegraphics[width=2cm]{images/docker}
   \begin{enumerate}\compresslist
      \item One
@@ -204,19 +214,14 @@
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{Run Processes}{name=run,column=1,below=docker}{
+\headerbox{Scheduler Extension}{name=scheduler,column=1,below=tech}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \includegraphics[width=6cm]{images/phoenix-example}
+  \includegraphics[width=6cm]{images/pywps-scheduler-extension}
 }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{Available Processes}{name=avail,column=1,below=run}{
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \includegraphics[width=6cm]{images/phoenix-copernicus-processes}
-}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{Outlook}{name=outlook,column=1,span=2,below=avail}{
+\headerbox{Outlook}{name=outlook,column=1,span=2,below=scheduler}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \begin{enumerate}\compresslist
     \item One
@@ -240,6 +245,18 @@
 \headerbox{SDDS Update Cycle}{name=sdds_update,column=2,below=sdds_workflow}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \includegraphics[width=6cm]{images/sdds-update-cycle}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headerbox{Run Processes}{name=run,column=2,below=sdds_update}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \includegraphics[width=6cm]{images/phoenix-example}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headerbox{Available Processes}{name=avail,column=2,below=run}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \includegraphics[width=6cm]{images/phoenix-copernicus-processes}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
