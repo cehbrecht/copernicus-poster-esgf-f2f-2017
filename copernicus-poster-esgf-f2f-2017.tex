@@ -205,6 +205,8 @@
        \item compute nodes - based on the Web Processing Service (WPS)
        \item SDDS - Software Dependency Deployment Solution to support the development of codes
        \item All web-service access will require users to be authenticated and authorised
+       \item Federated data nodes
+       \item Data store with CMIP5 and CORDEX data - selected for C3S and quality checked
     \end{enumerate}
     \vspace{0.3em}
   }
@@ -323,6 +325,23 @@
   \includegraphics[width=4cm]{sdds}
   \includegraphics[width=6cm]{sdds-workflow}
   \includegraphics[width=6cm]{sdds-update-cycle}
+
+  Software Deployment Dependency Solution:
+  \begin{enumerate}\compresslist
+    \item Compute Node capable of hosting processing codes from external projects
+    \item Compute Node will employ the Web Processing Service (WPS) standard
+    \item CP4CDS project is developing a system for managing different software environments in a re-usable manner
+    \item consists of code and library repositories to support the management,
+      testing and deployment of processing code that will be made available via the production service
+    \item The CP4CDS Compute Node provides hosted and scalable processing
+      capabilities using the OGC Web Processing Service
+    \item It consists of a software environment and application, managed through a GitHub repository,
+      which includes a basic template of a working WPS process.
+      The template uses a Conda "environment" to record the software dependencies
+    \item Conda as the tool to build reproducible software environments
+    \item intend to employ Docker to provide the Compute Node through containers
+    \item "production" environment run by the CP4CDS partners: STFC CEDA, IPSL and DKRZ.
+  \end{enumerate}
 }
 
 
