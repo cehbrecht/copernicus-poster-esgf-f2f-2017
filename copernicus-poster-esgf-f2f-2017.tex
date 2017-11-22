@@ -81,7 +81,7 @@
   % Format of text header
   eyecatcher=true, % Set to false for ignoring the left logo in the title and move the title left
   headerborder=closed, % Adds a border around the header of content boxes
-  headerheight=0.15\textheight, % Height of the header
+  headerheight=0.10\textheight, % Height of the header
   headershape=roundedright, % Specify the rounded corner in the content box headers
   headershade=shadelr,
   headerfont=\Large\bf\textsc, %Sans Serif
@@ -93,11 +93,12 @@
   }
 %%% Eye Cacther %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   {
-
+      \includegraphics[width=10em]{copernicus-logo}\\
+      \includegraphics[width=12em]{c3s-logo}
   }
 %%% Title %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   {\sf\bf
-          A Web Processing Service for\\ Copernicus Climate Change Service
+          A Compute Solution for\\ Copernicus Climate Change Service
   }
 %%% Authors %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   {
@@ -127,8 +128,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \headerbox{Copernicus Climate Change Service}{name=copernicus,column=0,row=0}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \includegraphics[width=5em]{copernicus-logo}
-  \includegraphics[width=0.8\textwidth]{copernicus}
+  \includegraphics[width=1.0\textwidth]{copernicus}
 
   \begin{enumerate}\compresslist
     \item Copernicus is the European Union's earth observation programme
@@ -144,7 +144,6 @@
 \headerbox{Climate Change Service (C3S)}{name=c3s,column=0,below=copernicus}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \center
-  \includegraphics[width=5em]{c3s-logo}
   \includegraphics[width=0.5\linewidth]{c3s-global-average-tas}
   \includegraphics[width=0.3\linewidth]{c3s-usage}
 
@@ -363,8 +362,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \begin{multicols}{3}
     \includegraphics[width=0.7\linewidth]{phoenix-example}
-    \includegraphics[width=0.7\linewidth]{c4i-example}
-    \includegraphics[width=0.7\linewidth]{c3s-web-client-example}
+
+    \includegraphics[width=1.0\linewidth]{c4i-example}
+
+    \includegraphics[width=0.8\linewidth]{c3s-web-client-example}
   \end{multicols}
 }
 
