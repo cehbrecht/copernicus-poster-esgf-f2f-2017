@@ -2,7 +2,7 @@
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
 
-\documentclass[portrait,a0paper,fontscale=0.35]{baposter} % Adjust the font scale/size here
+\documentclass[portrait,a0paper,fontscale=0.4]{baposter} % Adjust the font scale/size here
 
 \usepackage{calc}
 \usepackage{relsize}   % For \smaller
@@ -125,7 +125,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{Copernicus}{name=copernicus,column=0,row=0}{
+\headerbox{Copernicus Climate Change Service}{name=copernicus,column=0,row=0}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \includegraphics[width=5em]{copernicus-logo}
   \includegraphics[width=0.8\textwidth]{copernicus}
@@ -230,7 +230,8 @@
 \headerbox{Architecture}{name=arch,column=1,span=2,row=0}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \begin{multicols}{2}
-    \includegraphics[width=7cm]{copernicus-wps}
+    \includegraphics[width=0.7\linewidth]{copernicus-wps}
+    \includegraphics[width=0.7\linewidth]{pywps-scheduler-extension}
     \begin{enumerate}\compresslist
       \item OGC WPS standard based interface to processing functionalities deployed at CP4CDS data centers
       \item deployed near to the high volume climate data archives
@@ -320,45 +321,55 @@
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{SDDS}{name=sdds,column=1,span=2,below=tech}{
+\headerbox{SDDS - Software Deployment Dependency Solution}{name=sdds,column=1,span=2,below=tech}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \includegraphics[width=4cm]{sdds}
-  \includegraphics[width=6cm]{sdds-workflow}
-  \includegraphics[width=6cm]{sdds-update-cycle}
+  \begin{multicols}{3}
+    \begin{center}
+      \includegraphics[width=0.6\linewidth]{sdds}
+      \captionof{figure}{Compute node template}
+    \end{center}
 
-  Software Deployment Dependency Solution:
-  \begin{enumerate}\compresslist
-    \item Compute Node capable of hosting processing codes from external projects
-    \item Compute Node will employ the Web Processing Service (WPS) standard
-    \item CP4CDS project is developing a system for managing different software environments in a re-usable manner
-    \item consists of code and library repositories to support the management,
-      testing and deployment of processing code that will be made available via the production service
-    \item The CP4CDS Compute Node provides hosted and scalable processing
-      capabilities using the OGC Web Processing Service
-    \item It consists of a software environment and application, managed through a GitHub repository,
-      which includes a basic template of a working WPS process.
-      The template uses a Conda "environment" to record the software dependencies
-    \item Conda as the tool to build reproducible software environments
-    \item intend to employ Docker to provide the Compute Node through containers
-    \item "production" environment run by the CP4CDS partners: STFC CEDA, IPSL and DKRZ.
-  \end{enumerate}
+    \begin{center}
+      \includegraphics[width=0.8\linewidth]{sdds-workflow}
+      \captionof{figure}{Workflow of creating a new compute node}
+    \end{center}
+
+    \begin{center}
+      \includegraphics[width=0.8\linewidth]{sdds-update-cycle}
+      \captionof{figure}{Update cycle for compute node}
+    \end{center}
+  \end{multicols}
+
+  % \begin{enumerate}\compresslist
+  %   \item Compute Node capable of hosting processing codes from external projects
+  %   \item Compute Node will employ the Web Processing Service (WPS) standard
+  %   \item CP4CDS project is developing a system for managing different software environments in a re-usable manner
+  %   \item consists of code and library repositories to support the management,
+  %     testing and deployment of processing code that will be made available via the production service
+  %   \item The CP4CDS Compute Node provides hosted and scalable processing
+  %     capabilities using the OGC Web Processing Service
+  %   \item It consists of a software environment and application, managed through a GitHub repository,
+  %     which includes a basic template of a working WPS process.
+  %     The template uses a Conda "environment" to record the software dependencies
+  %   \item Conda as the tool to build reproducible software environments
+  %   \item intend to employ Docker to provide the Compute Node through containers
+  %   \item "production" environment run by the CP4CDS partners: STFC CEDA, IPSL and DKRZ.
+  % \end{enumerate}
 }
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{Scheduler Extension}{name=scheduler,column=1,below=sdds}{
+\headerbox{Example}{name=run,column=1,span=2,below=sdds}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \includegraphics[width=6cm]{pywps-scheduler-extension}
+  \begin{multicols}{3}
+    \includegraphics[width=0.7\linewidth]{phoenix-example}
+    \includegraphics[width=0.7\linewidth]{c4i-example}
+    \includegraphics[width=0.7\linewidth]{c3s-web-client-example}
+  \end{multicols}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{Run Processes}{name=run,column=2,below=sdds}{
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \includegraphics[width=6cm]{phoenix-example}
-}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{Outlook}{name=outlook,column=1,span=2,below=scheduler}{
+\headerbox{Outlook}{name=outlook,column=1,span=2,below=run}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \begin{enumerate}\compresslist
     \item C3S overview and C3S Climate Data Store (CDS)
