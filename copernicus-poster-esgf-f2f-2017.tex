@@ -2,7 +2,7 @@
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
 
-\documentclass[portrait,a0paper]{baposter}
+\documentclass[portrait,a0paper,fontscale=0.35]{baposter} % Adjust the font scale/size here
 
 \usepackage{calc}
 \usepackage{relsize}   % For \smaller
@@ -59,7 +59,7 @@
   % Poster Options
   {
   % Show grid to help with alignment
-  grid=true,
+  grid=false,
   % Number of columns
   columns=3,
   % Column spacing
@@ -90,8 +90,7 @@
   }
 %%% Eye Cacther %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   {
-    \includegraphics[width=5em]{copernicus-logo}
-    \includegraphics[width=5em]{c3s-logo}
+
   }
 %%% Title %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   {\sf\bf
@@ -122,42 +121,49 @@
 %%% box.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headerbox{Copernicus}{name=copernicus,column=0,row=0}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \includegraphics[width=5em]{copernicus-logo}
+  \includegraphics[width=0.8\linewidth]{copernicus}
 
- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- \headerbox{Climate Change Service}{name=c3s,column=0,span=1,row=0}{
- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \begin{multicols}{2}
-      \includegraphics[width=0.8\linewidth]{c3s-global-average-tas}
+  \begin{enumerate}\compresslist
+    \item Copernicus is the European Union's earth observation programme
+    \item Collects data from multiple sources: earth observation, satellites and in situ sensors
+    \item The services address six thematic areas: land, marine, atmosphere, \emph{climate change},
+        emergency management, security
+    \item The main users of Copernicus services are policymakers and public authorities
+  \end{enumerate}
 
-    \begin{enumerate}\compresslist
-       \item identifying, acquiring and quality controlling the relevant data
-       \item data nodes - consisting of vanilla ESGF index and data nodes
-    \end{enumerate}
-  \end{multicols}
-  }
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headerbox{Climate Change Service (C3S)}{name=c3s,column=0,below=copernicus}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \center
+  \includegraphics[width=5em]{c3s-logo}
+  \includegraphics[width=1.0\linewidth]{c3s-global-average-tas}
+
+  \begin{enumerate}\compresslist
+    \item Gives access to information for monitoring and predicting climate change
+    \item Helps to support adaptation and mitigation
+    \item The service will provide access to several climate indicators
+      and climate indices for both the identified climate drivers and the expected climate impacts.
+  \end{enumerate}
+}
 
 
- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- \headerbox{Climate Data Store}{name=cds,column=0,span=1,below=c3s}{
- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    % Climate Projections for the Climate Data Store (CP4CDS).
-    % The Copernicus Climate Data Store (CDS) will interact with remote data and compute services,
-    % amongst which will be those providing global climate projections.
-    % An Earth System Grid Federation (ESGF) node and concomitant compute services
-    % providing access to a coherent collection of quality assured climate projections.
-    % CP4CDS will be delivered by a consortium of three of the leading European institutes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headerbox{Climate Data Store (CDS)}{name=cds,column=0,span=1,below=c3s}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \includegraphics[width=1.0\linewidth]{cds}
 
-    \includegraphics[width=6cm]{wps_adamsteer}
-
-    \begin{enumerate}\compresslist
-       \item identifying, acquiring and quality controlling the relevant data
-       \item data nodes - consisting of vanilla ESGF index and data nodes
-       \item compute nodes - based on the Web Processing Service (WPS)
-       \item SDDS - Software Dependency Deployment Solution to support the development of codes
-       \item All web-service access will require users to be authenticated and authorised
-    \end{enumerate}
-    \vspace{0.3em}
-  }
+  \begin{enumerate}\compresslist
+    \item A climate data store will contain the geophysical information needed to analyse the climate change indicators in a consistent and harmonised way.
+    \item This will combine the functions of a distributed data centre with a set of services and facilities for users and content developers.
+    \item The store will provide data resources and computing facilities that can be utilised, for example, to develop improved climate reanalyses and seasonal forecasts.
+  \end{enumerate}
+}
 
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  \headerbox{CP4CDS}{name=cp4cds,column=0,span=1,below=cds}{
@@ -197,38 +203,99 @@
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{Architecture}{name=arch,column=1,row=0}{
+\headerbox{Architecture}{name=arch,column=1,span=2,row=0}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \includegraphics[width=7cm]{copernicus-wps}
+  \begin{multicols}{2}
+    \includegraphics[width=7cm]{copernicus-wps}
+    \begin{enumerate}\compresslist
+      \item An implementation of the OGC Web Processing Service standard
+      \item Implements WPS 1.0.0 standard (WPS 2.0.0 in progress)
+      \item Coded in the Python language (researcher friendly)
+      \item Easy to hack (developer friendly)
+      \item Relevant contributions by over a dozen individuals
+      \item OSGeo accreditation around the corner \ldots
+    \end{enumerate}
+  \end{multicols}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{Technology}{name=tech,column=1,span=1,below=arch}{
+\headerbox{Technology}{name=tech,column=1,span=2,below=arch}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \begin{multicols}{2}
   \includegraphics[width=2cm]{pywps}
   \begin{enumerate}\compresslist
-    \item One
-    \item Two
+    \item An implementation of the OGC Web Processing Service standard
+    \item Implements WPS 1.0.0 standard (WPS 2.0.0 in progress)
+    \item Coded in the Python language (researcher friendly)
+    \item Easy to hack (developer friendly)
+    \item Relevant contributions by over a dozen individuals
+    \item OSGeo accreditation around the corner \ldots
   \end{enumerate}
-  \vspace{0.3em}
 
-  \includegraphics[width=2cm]{docker}
+  \includegraphics[width=2cm]{nginx}
+  \begin{enumerate}\compresslist
+     \item Nginx - security, reverse proxy, load balancing
+     \item Essentially a web (HTTP) server
+     \item But more used for reverse-proxy
+     \item Acts as a single entrance point to all requests
+     \item Redirects requests to Gunicorn
+     \item Can redirect to multiple Gunicorns
+     \item Gateway to multiple servers and applications from a single URL
+  \end{enumerate}
+
+  \includegraphics[width=2cm]{gunicorn}
+  \begin{enumerate}\compresslist
+     \item Gunicorn - concurrency, WSGI
+     \item WSGI - Common interface to multiple web applications frameworks
+     \item Easy to configure and use with Python
+     \item Promotes the concepts of ``workers''
+     \item Each worker can run on a different CPU core
+  \end{enumerate}
+
+  \includegraphics[width=2cm]{conda}
   \begin{enumerate}\compresslist
      \item One
      \item Two
   \end{enumerate}
-  \vspace{0.3em}
+
+  \includegraphics[width=2cm]{ansible}
+  \begin{enumerate}\compresslist
+     \item Ansible - simple IT automation
+     \item Just a Python library - no services necessary
+     \item using ``ssh'' for remote deployments
+  \end{enumerate}
+
+  \includegraphics[width=2cm]{docker}
+  \begin{enumerate}\compresslist
+    \item An OS level virtualisation engine
+    \item Docker runs software \textit{containers}
+  \end{enumerate}
+  \end{multicols}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{Scheduler Extension}{name=scheduler,column=1,below=tech}{
+\headerbox{SDDS}{name=sdds,column=1,span=2,below=tech}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \includegraphics[width=4cm]{sdds}
+  \includegraphics[width=6cm]{sdds-workflow}
+  \includegraphics[width=6cm]{sdds-update-cycle}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headerbox{Scheduler Extension}{name=scheduler,column=1,below=sdds}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \includegraphics[width=6cm]{pywps-scheduler-extension}
 }
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headerbox{Run Processes}{name=run,column=2,below=sdds}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \includegraphics[width=6cm]{phoenix-example}
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{Outlook}{name=outlook,column=1,span=1,below=scheduler}{
+\headerbox{Outlook}{name=outlook,column=1,span=2,below=scheduler}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \begin{enumerate}\compresslist
     \item C3S overview and C3S Climate Data Store (CDS)
@@ -240,36 +307,6 @@
     \item SDDS workflow: template, GitHub fork etc
     \item Status and next steps
   \end{enumerate}
-}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{SDDS}{name=sdds,column=2,row=0}{
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \includegraphics[width=4cm]{sdds}
-}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{SDDS Workflow}{name=sdds_workflow,column=2,below=sdds}{
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \includegraphics[width=6cm]{sdds-workflow}
-}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{SDDS Update Cycle}{name=sdds_update,column=2,below=sdds_workflow}{
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \includegraphics[width=6cm]{sdds-update-cycle}
-}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{Run Processes}{name=run,column=2,below=sdds_update}{
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \includegraphics[width=6cm]{phoenix-example}
-}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{Available Processes}{name=avail,column=2,below=run}{
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \includegraphics[width=6cm]{phoenix-copernicus-processes}
 }
 
 \end{poster}
