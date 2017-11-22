@@ -176,7 +176,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \headerbox{Climate Data Store (CDS)}{name=cds,column=0,span=1,below=c3s}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \includegraphics[width=1.0\linewidth]{cds}
+  \includegraphics[width=0.7\linewidth]{cds}
 
   \begin{enumerate}\compresslist
     \item A climate data store will contain the geophysical information needed to analyse the climate change indicators in a consistent and harmonised way.
@@ -188,23 +188,44 @@
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  \headerbox{Compute for CDS}{name=cp4cds,column=0,span=1,below=cds}{
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    % Climate Projections for the Climate Data Store (CP4CDS).
     % The Copernicus Climate Data Store (CDS) will interact with remote data and compute services,
     % amongst which will be those providing global climate projections.
+
     % An Earth System Grid Federation (ESGF) node and concomitant compute services
     % providing access to a coherent collection of quality assured climate projections.
+
     % CP4CDS will be delivered by a consortium of three of the leading European institutes
 
-    \includegraphics[width=6cm]{wps_adamsteer}
+    % deliver the required data and compute services in a flexible and scalable environment with,
+    % by the end of the project, high standards of reliability and performance
+
+    % The CP4CDS system will be based on a geographically distributed highly available set of data and compute services.
+    % Data will be available at CEDA, IPSL, and DKRZ, with replicas synchronised using the Synda software package.
+
+    % A Software Dependency Deployment Solution (SDDS) consisting of code and library repositories
+    % with continuous integration and a release cycle
+    % to support the development of codes which exploit the data and compute interfaces offered by CP4CDS;
+
+    % A hosted compute service with direct access on the local file system to the entire ESGF cache
+
+    % A software toolbox to be used by those developing codes for interfacing to CP4CDS,
+    % including the esgf_pyclient python library for searching ESGF for data and the
+    % Synda python library for managing data movement and processing.
+
+    %\includegraphics[width=6cm]{wps_adamsteer}
+
+    \includegraphics[width=0.3\linewidth]{cp4cds}
 
     \begin{enumerate}\compresslist
-       \item identifying, acquiring and quality controlling the relevant data
-       \item data nodes - consisting of vanilla ESGF index and data nodes
-       \item compute nodes - based on the Web Processing Service (WPS)
-       \item SDDS - Software Dependency Deployment Solution to support the development of codes
-       \item All web-service access will require users to be authenticated and authorised
-       \item Federated data nodes
-       \item Data store with CMIP5 and CORDEX data - selected for C3S and quality checked
+      \item CP4CDS – Climate Projections for the Copernicus Data Store
+      \item An extended ESGF sub-system populated and configured to support the Copernicus Data Store
+      \item identifying, acquiring and quality controlling the relevant data
+      \item data nodes - consisting of vanilla ESGF index and data nodes
+      \item compute nodes - based on the Web Processing Service (WPS)
+      \item SDDS - Software Dependency Deployment Solution to support the development of codes
+      \item All web-service access will require users to be authenticated and authorised
+      \item Federated data nodes
+      \item Data store with CMIP5 and CORDEX data - selected for C3S and quality checked
     \end{enumerate}
     \vspace{0.3em}
   }
