@@ -287,39 +287,47 @@
 \headerbox{Technology}{name=tech,column=1,span=2,below=arch}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \begin{multicols}{2}
-    %\begin{wrapfigure}{l}{0.7\linewidth}
-      \includegraphics[width=0.2\linewidth]{pywps}
-      %\caption{This is the Share\LaTeX{} logo}
-    %\end{wrapfigure}
+    \begin{multicols}{2}
+      \includegraphics[width=0.5\linewidth]{pywps}
+      \vfill
+      \begin{enumerate}\compresslist
+        \item Python implementation of OGC Web Processing Standard
+        \item Easy to hack (developer friendly)
+        \item OSGeo accreditation around the corner \ldots
+        % \item An implementation of the OGC Web Processing Service standard
+        % \item Implements WPS 1.0.0 standard (WPS 2.0.0 in progress)
+        % \item Coded in the Python language (researcher friendly)
+        % \item Easy to hack (developer friendly)
+        % \item Relevant contributions by over a dozen individuals
+        % \item OSGeo accreditation around the corner \ldots
+      \end{enumerate}
+    \end{multicols}
 
-    \begin{enumerate}\compresslist
-      \item An implementation of the OGC Web Processing Service standard
-      \item Implements WPS 1.0.0 standard (WPS 2.0.0 in progress)
-      \item Coded in the Python language (researcher friendly)
-      \item Easy to hack (developer friendly)
-      \item Relevant contributions by over a dozen individuals
-      \item OSGeo accreditation around the corner \ldots
-    \end{enumerate}
+    \begin{multicols}{2}
+      \includegraphics[width=0.5\linewidth]{nginx}
+      \vfill
+      \begin{enumerate}\compresslist
+        \item Nginx - security, reverse proxy, load balancing
+        \item Essentially a web (HTTP) server
+        % \item But more used for reverse-proxy
+        % \item Acts as a single entrance point to all requests
+        \item Redirects requests to Gunicorn
+        % \item Can redirect to multiple Gunicorns
+        \item Gateway to multiple servers and applications from a single URL
+      \end{enumerate}
+    \end{multicols}
 
-    \includegraphics[width=0.2\linewidth]{nginx}
-    \begin{enumerate}\compresslist
-      \item Nginx - security, reverse proxy, load balancing
-      \item Essentially a web (HTTP) server
-      \item But more used for reverse-proxy
-      \item Acts as a single entrance point to all requests
-      \item Redirects requests to Gunicorn
-      \item Can redirect to multiple Gunicorns
-      \item Gateway to multiple servers and applications from a single URL
-    \end{enumerate}
-
-    \includegraphics[width=0.2\linewidth]{gunicorn}
-    \begin{enumerate}\compresslist
-      \item Gunicorn - concurrency, WSGI
-      \item WSGI - Common interface to multiple web applications frameworks
-      \item Easy to configure and use with Python
-      \item Promotes the concepts of ``workers''
-      \item Each worker can run on a different CPU core
-    \end{enumerate}
+    \begin{multicols}{2}
+      \includegraphics[width=0.5\linewidth]{gunicorn}
+      \vfill
+      \begin{enumerate}\compresslist
+        \item Gunicorn - concurrency, WSGI
+        \item WSGI - Common interface to multiple web applications frameworks
+        %\item Easy to configure and use with Python
+        %\item Promotes the concepts of ``workers''
+        \item Each worker can run on a different CPU core
+      \end{enumerate}
+    \end{multicols}
 
     %\includegraphics[width=0.2\linewidth]{gunicorn}
     {\bf SUPERVISOR}
