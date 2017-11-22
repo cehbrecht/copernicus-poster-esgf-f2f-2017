@@ -167,7 +167,7 @@
 }
 
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- \headerbox{CP4CDS}{name=cp4cds,column=0,span=1,below=cds}{
+ \headerbox{Compute for CDS}{name=cp4cds,column=0,span=1,below=cds}{
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     % Climate Projections for the Climate Data Store (CP4CDS).
     % The Copernicus Climate Data Store (CDS) will interact with remote data and compute services,
@@ -209,12 +209,16 @@
   \begin{multicols}{2}
     \includegraphics[width=7cm]{copernicus-wps}
     \begin{enumerate}\compresslist
-      \item An implementation of the OGC Web Processing Service standard
-      \item Implements WPS 1.0.0 standard (WPS 2.0.0 in progress)
-      \item Coded in the Python language (researcher friendly)
-      \item Easy to hack (developer friendly)
-      \item Relevant contributions by over a dozen individuals
-      \item OSGeo accreditation around the corner \ldots
+      \item OGC WPS standard based interface to processing functionalities deployed at CP4CDS data centers
+      \item deployed near to the high volume climate data archives
+      \item A WPS request (HTTP GET/POST) comes from a WPS client.
+      \item The Nginx/Gunicorn combination delegates the request to the PyWPS WSGI application
+      \item Gunicorn spawns several workers to use the available CPUs on a single compute node
+      \item Processing outputs and status documents are web accessible by the Nginx file-service
+      \item A firewall allows only access to the public service interface
+      \item WPS Processes are defined for ESMValTool diagnostics
+      \item ESMValTool has read- only access to the climate data pool on
+        file-system with CMIP5 climate model and observational data.
     \end{enumerate}
   \end{multicols}
 }
@@ -257,13 +261,21 @@
       \item Each worker can run on a different CPU core
     \end{enumerate}
 
+    %\includegraphics[width=0.2\linewidth]{gunicorn}
+    {\bf SUPERVISOR}
+    \begin{enumerate}\compresslist
+      \item Supervisor - A Process Control System
+      \item Monitor and control a number of processes on UNIX
+      \item Used to control processes related to a project
+    \end{enumerate}
+
     \includegraphics[width=0.2\linewidth]{conda}
     \begin{enumerate}\compresslist
       \item Python package manager
       \item Environments
     \end{enumerate}
 
-    \includegraphics[width=0.2\linewidth]{ansible}
+    \includegraphics[width=0.1\linewidth]{ansible}
     \begin{enumerate}\compresslist
       \item Ansible - simple IT automation
       \item Just a Python library - no services necessary
@@ -274,6 +286,12 @@
     \begin{enumerate}\compresslist
       \item An OS level virtualisation engine
       \item Docker runs software \textit{containers}
+    \end{enumerate}
+
+    \includegraphics[width=0.4\linewidth]{esmvaltool}
+    \begin{enumerate}\compresslist
+      \item A community diagnostic and performance metrics tool for routine evaluation of Earth system models in CMIP
+      \item Collection of diagnostics implemented in Python and NCL
     \end{enumerate}
   \end{multicols}
 }
