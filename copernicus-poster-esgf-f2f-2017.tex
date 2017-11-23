@@ -12,12 +12,12 @@
 \usepackage{url}       % For \url
 
 \usepackage{graphicx}
-\usepackage{subcaption} % For floating figures
+%\usepackage{subcaption} % For floating figures
 
 \usepackage{multicol} % Required for multiple columns
-\usepackage{wrapfig}
-%\setlength{\columnsep}{1.5em} % Slightly increase the space between columns
-%\setlength{\columnseprule}{0mm} % No horizontal rule between columns
+%\usepackage{wrapfig}
+\setlength{\columnsep}{1.5em} % Slightly increase the space between columns
+\setlength{\columnseprule}{0mm} % No horizontal rule between columns
 
 \usepackage{tikz} % Required for flow chart
 \usetikzlibrary{calc}
@@ -29,7 +29,7 @@
 
 %%% Global Settings %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\graphicspath{{images/}}	% Root directory of the pictures
+\graphicspath{{images/}{draw.io/}}	% Root directory of the pictures
 %\tracingstats=2			% Enabled LaTeX logging with conditionals
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -265,11 +265,13 @@
    \begin{minipage}[t]{0.5\textwidth}
      \includegraphics[width=0.6\linewidth]{cp4cds}
      \begin{itemize}\compresslist
-       \item Data Node - consisting of vanilla Earth System Grid Federation (ESGF) index and data node
+       \item Providing climate projections to the Climate Data Store of the
+        Climate Change Service portal hosted at ECMWF, UK 
+       \item Data Node - consisting of vanilla \emph{Earth System Grid Federation} (ESGF) index and data node
        \item Compute Node - providing compute facilities using the Web Processing Service (WPS) standard interface
-       \item Processing Backend - external software toolbox to analyse climate model projections
-       \item Data store with global (CMIP5) and regional (CORDEX) climate projections - selected for C3S and quality checked
-       \item Synda Python library for managing data movement (replication)
+       \item Processing Backend - \emph{external software toolbox} to analyse climate model projections
+       \item Climate Projections in filesystem cache - selected for C3S and quality checked
+       \item \emph{Synda} Python library for managing data movement (replication)
      \end{itemize}
   \end{minipage}
   \begin{minipage}[t]{0.25\textwidth}
@@ -280,9 +282,12 @@
     \end{itemize}
   \end{minipage}
   \begin{minipage}[t]{0.25\textwidth}
-    \includegraphics[width=\linewidth]{cp4cds-federated}
+    \includegraphics[width=\linewidth]{cp4cds-toolbox}
     \begin{itemize}\compresslist
-      \item Federated data nodes
+      \item Toolbox with a \emph{Software Dependency and Deployment Solution} (SDDS)
+      \item Supporting the development of codes which exploit the data and compute interfaces offered by CP4CDS
+      \item Used to set-up CP4CDS nodes for CMIP5 (global) and CORDEX (regional) climate projections with
+        a specific analysis toolbox.
     \end{itemize}
   \end{minipage}
  }
