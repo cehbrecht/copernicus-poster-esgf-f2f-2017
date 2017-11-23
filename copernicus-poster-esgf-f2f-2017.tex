@@ -341,17 +341,29 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \headerbox{SDDS - Software Deployment Dependency Solution}{name=sdds,column=1,span=2,below=arch}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \begin{minipage}[t]{0.3\textwidth}
+  \begin{minipage}{0.25\textwidth}
     \includegraphics[width=\linewidth]{sdds}
-    Compute node template
   \end{minipage}
-  \begin{minipage}[t]{0.3\textwidth}
-    \includegraphics[width=\linewidth]{sdds-workflow}
-    Workflow of creating a new compute node
+  \begin{minipage}{0.75\textwidth}
+    \begin{itemize}\compresslist
+      \item Compute Node is capable of hosting processing codes from external projects
+      \item SDDS - consists of a software environment and application, managed through a GitHub repository,
+        which includes a basic template of a working WPS service.
+      \item The template uses a Conda ``environment'' to record the software dependencies
+      \item Conda is the tool to build reproducible software environments
+      \item Docker is used to provide the Compute Node through containers
+    \end{itemize}
   \end{minipage}
-  \begin{minipage}[t]{0.3\textwidth}
-    \includegraphics[width=\linewidth]{sdds-update-cycle}
-    Update cycle for compute node
+  \vspace{2em}
+
+  \begin{minipage}[t]{0.45\textwidth}
+    \includegraphics[width=\linewidth]{sdds-workflow} \\
+    Workflow for creating a new WPS compute service based on the SDDS template.
+  \end{minipage}
+  \hspace{5em}
+  \begin{minipage}[t]{0.45\textwidth}
+    \includegraphics[width=\linewidth]{sdds-update-cycle} \\
+    Update cycle for a new WPS compute service. \\
   \end{minipage}
 
   % \begin{itemize}\compresslist
@@ -360,8 +372,6 @@
   %   \item CP4CDS project is developing a system for managing different software environments in a re-usable manner
   %   \item consists of code and library repositories to support the management,
   %     testing and deployment of processing code that will be made available via the production service
-  %   \item The CP4CDS Compute Node provides hosted and scalable processing
-  %     capabilities using the OGC Web Processing Service
   %   \item It consists of a software environment and application, managed through a GitHub repository,
   %     which includes a basic template of a working WPS process.
   %     The template uses a Conda "environment" to record the software dependencies
