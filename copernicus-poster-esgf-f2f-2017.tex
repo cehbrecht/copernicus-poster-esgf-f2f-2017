@@ -246,9 +246,10 @@
 
    %\includegraphics[width=6cm]{wps_adamsteer}
 
-   \begin{multicols}{2}
-     \includegraphics[width=0.7\linewidth]{cp4cds}
-
+   \begin{minipage}{0.4\textwidth}
+     \includegraphics[width=\linewidth]{cp4cds}
+   \end{minipage}
+   \begin{minipage}{0.6\textwidth}
      \begin{itemize}\compresslist
        \item An extended ESGF sub-system populated and configured to support the Copernicus Data Store
        \item identifying, acquiring and quality controlling the relevant data
@@ -259,7 +260,7 @@
        \item Federated data nodes
        \item Data store with CMIP5 and CORDEX data - selected for C3S and quality checked
      \end{itemize}
-   \end{multicols}
+    \end{minipage}
  }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -410,22 +411,20 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \headerbox{SDDS - Software Deployment Dependency Solution}{name=sdds,column=1,span=2,below=tech}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \begin{multicols}{3}
-    \begin{center}
-      \includegraphics[width=0.6\linewidth]{sdds}
-      \captionof{figure}{Compute node template}
-    \end{center}
+  \begin{minipage}{0.3\textwidth}
+    \includegraphics[width=\linewidth]{sdds}
+    %\captionof{figure}{Compute node template}
+  \end{minipage}
 
-    \begin{center}
-      \includegraphics[width=0.8\linewidth]{sdds-workflow}
-      \captionof{figure}{Workflow of creating a new compute node}
-    \end{center}
+  \begin{minipage}{0.3\textwidth}
+    \includegraphics[width=\linewidth]{sdds-workflow}
+    %\captionof{figure}{Workflow of creating a new compute node}
+  \end{minipage}
 
-    \begin{center}
-      \includegraphics[width=0.8\linewidth]{sdds-update-cycle}
-      \captionof{figure}{Update cycle for compute node}
-    \end{center}
-  \end{multicols}
+  \begin{minipage}{0.3\textwidth}
+    \includegraphics[width=\linewidth]{sdds-update-cycle}
+    %\captionof{figure}{Update cycle for compute node}
+  \end{minipage}
 
   % \begin{itemize}\compresslist
   %   \item Compute Node capable of hosting processing codes from external projects
