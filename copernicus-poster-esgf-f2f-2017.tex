@@ -265,9 +265,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \headerbox{Architecture}{name=arch,column=1,span=2,below=cp4cds}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \begin{multicols}{2}
+  \begin{minipage}{0.4\textwidth}
     \includegraphics[width=0.7\linewidth]{copernicus-wps}
-    \includegraphics[width=0.7\linewidth]{pywps-scheduler-extension}
+  \end{minipage}
+  \begin{minipage}{0.6\textwidth}
     \begin{itemize}\compresslist
       \item OGC WPS standard based interface to processing functionalities deployed at CP4CDS data centers
       \item deployed near to the high volume climate data archives
@@ -280,7 +281,15 @@
       \item ESMValTool has read- only access to the climate data pool on
         file-system with CMIP5 climate model and observational data.
     \end{itemize}
-  \end{multicols}
+  \end{minipage}
+  \begin{minipage}{0.4\textwidth}
+    \includegraphics[width=\linewidth]{pywps-scheduler-extension}
+  \end{minipage}
+  \begin{minipage}{0.6\textwidth}
+    \begin{itemize}\compresslist
+      \item PyWPS Scheduler Extension
+    \end{itemize}
+  \end{minipage}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -334,9 +343,6 @@
       \end{itemize}
     \end{minipage}
 
-  \end{minipage}
-  \begin{minipage}{0.5\textwidth}
-
     \begin{minipage}{0.2\textwidth}
       %\includegraphics[width=0.2\linewidth]{gunicorn}
       {\bf SUPERVISOR}
@@ -349,6 +355,9 @@
       \end{itemize}
     \end{minipage}
 
+  \end{minipage}
+  \begin{minipage}{0.5\textwidth}
+
     \begin{minipage}{0.2\textwidth}
       \includegraphics[width=\linewidth]{conda}
     \end{minipage}
@@ -356,6 +365,7 @@
       \begin{itemize}\compresslist
         \item Python package manager
         \item Environments
+        \item Birdhouse uses the conda package manager to setup an environment with all used software components.
       \end{itemize}
     \end{minipage}
 
@@ -367,6 +377,8 @@
         \item Ansible - simple IT automation
         \item Just a Python library - no services necessary
         %\item using ``ssh'' for remote deployments
+        \item It uses Buildout to setup a WPS (PyWPS) with all services (supervisor, gunicorn, nginx) and configuration files.
+        \item Managing the Chaos
       \end{itemize}
     \end{minipage}
 
@@ -377,6 +389,8 @@
       \begin{itemize}\compresslist
         \item An OS level virtualisation engine
         \item Docker runs software \textit{containers}
+        \item A Dockerfile is generated using the Buildout setup for each WPS service.
+        \item Docker images are build automatically on DockerHub.
       \end{itemize}
     \end{minipage}
 
