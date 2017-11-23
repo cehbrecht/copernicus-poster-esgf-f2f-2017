@@ -326,15 +326,53 @@
         file-system with CMIP5 climate model and observational data.
     \end{itemize}
   \end{minipage}
+  \vspace{1em}
 
-  % \begin{minipage}{0.4\textwidth}
-  %   \includegraphics[width=\linewidth]{pywps-scheduler-extension}
-  % \end{minipage}
-  % \begin{minipage}{0.6\textwidth}
-  %   \begin{itemize}\compresslist
-  %     \item PyWPS Scheduler Extension
-  %   \end{itemize}
-  % \end{minipage}
+  \begin{minipage}{0.3\textwidth}
+    \includegraphics[width=\linewidth]{pywps-scheduler-extension}
+  \end{minipage}
+  \begin{minipage}{0.7\textwidth}
+    \begin{itemize}\compresslist
+      \item PyWPS Scheduler Extension
+    \end{itemize}
+  \end{minipage}
+
+  \begin{minipage}{0.3\textwidth}
+    \includegraphics[width=0.2\linewidth]{conda}
+    \includegraphics[width=0.2\linewidth]{ansible}
+    \includegraphics[width=0.4\linewidth]{chaos}
+  \end{minipage}
+  \begin{minipage}{0.7\textwidth}
+    \begin{itemize}\compresslist
+      \item Using the Conda package manager to setup an environment with all used software components.
+      \item Using Buildout/Ansible to setup a WPS (PyWPS) with all services (Supervisor, Gunicorn, Nginx)
+        and configuration files.
+      \item ``Managing the Chaos''
+    \end{itemize}
+  \end{minipage}
+  \vspace{1em}
+
+  \begin{minipage}{0.3\textwidth}
+    \includegraphics[width=0.2\linewidth]{docker}
+    \includegraphics[width=0.4\linewidth]{cp4cds-docker-cloud}
+  \end{minipage}
+  \begin{minipage}{0.7\textwidth}
+    \begin{itemize}\compresslist
+      \item A Dockerfile is generated using the Buildout setup for each WPS service.
+      \item Docker images are build automatically on Docker Cloud.
+    \end{itemize}
+  \end{minipage}
+  \vspace{1em}
+
+  \begin{minipage}{0.3\textwidth}
+    \includegraphics[width=\linewidth]{esmvaltool}
+  \end{minipage}
+  \begin{minipage}{0.7\textwidth}
+    \begin{itemize}\compresslist
+      \item A community diagnostic and performance metrics tool for routine evaluation of Earth system models in CMIP
+      \item Collection of diagnostics implemented in Python and NCL
+    \end{itemize}
+  \end{minipage}
 }
 
 
@@ -380,82 +418,6 @@
   %   \item "production" environment run by the CP4CDS partners: STFC CEDA, IPSL and DKRZ.
   % \end{itemize}
 }
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{Technology}{name=tech,column=1,span=2,below=sdds}{
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{minipage}{0.15\textwidth}
-      \includegraphics[width=\linewidth]{pywps}
-    \end{minipage}
-    \begin{minipage}{0.85\textwidth}
-      \begin{itemize}\compresslist
-        \item Python implementation of OGC Web Processing Standard
-        \item Easy to hack (developer friendly)
-        \item OSGeo accreditation around the corner \ldots
-        % \item An implementation of the OGC Web Processing Service standard
-        % \item Implements WPS 1.0.0 standard (WPS 2.0.0 in progress)
-        % \item Coded in the Python language (researcher friendly)
-        % \item Easy to hack (developer friendly)
-        % \item Relevant contributions by over a dozen individuals
-        % \item OSGeo accreditation around the corner \ldots
-      \end{itemize}
-    \end{minipage}
-    \begin{minipage}{0.15\textwidth}
-      \includegraphics[width=\linewidth]{conda}
-    \end{minipage}
-    \begin{minipage}{0.85\textwidth}
-      \begin{itemize}\compresslist
-        \item Python package manager
-        \item Environments
-        \item Birdhouse uses the conda package manager to setup an environment with all used software components.
-      \end{itemize}
-    \end{minipage}
-    \begin{minipage}{0.15\textwidth}
-      \includegraphics[width=0.5\linewidth]{ansible}
-    \end{minipage}
-    \begin{minipage}{0.85\textwidth}
-      \begin{itemize}\compresslist
-        \item Ansible - simple IT automation
-        \item Just a Python library - no services necessary
-        %\item using ``ssh'' for remote deployments
-        \item It uses Buildout to setup a WPS (PyWPS) with all services (supervisor, gunicorn, nginx) and configuration files.
-        \item Managing the Chaos
-      \end{itemize}
-    \end{minipage}
-    \begin{minipage}{0.15\textwidth}
-      \includegraphics[width=\linewidth]{docker}
-    \end{minipage}
-    \begin{minipage}{0.85\textwidth}
-      \begin{itemize}\compresslist
-        \item An OS level virtualisation engine
-        \item Docker runs software \textit{containers}
-        \item A Dockerfile is generated using the Buildout setup for each WPS service.
-        \item Docker images are build automatically on DockerHub.
-      \end{itemize}
-    \end{minipage}
-    \begin{minipage}{0.15\textwidth}
-      \includegraphics[width=\linewidth]{esmvaltool}
-    \end{minipage}
-    \begin{minipage}{0.85\textwidth}
-      \begin{itemize}\compresslist
-        \item A community diagnostic and performance metrics tool for routine evaluation of Earth system models in CMIP
-        \item Collection of diagnostics implemented in Python and NCL
-      \end{itemize}
-    \end{minipage}
-}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{Example}{name=run,column=1,span=2,below=tech}{
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \begin{multicols}{3}
-    \includegraphics[width=0.7\linewidth]{phoenix-example}
-
-    \includegraphics[width=1.0\linewidth]{c4i-example}
-
-    \includegraphics[width=0.8\linewidth]{c3s-web-client-example}
-  \end{multicols}
-}
-
 
 
 \end{poster}
