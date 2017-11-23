@@ -130,13 +130,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \includegraphics[width=1.0\textwidth]{copernicus}
 
-  \begin{enumerate}\compresslist
+  \begin{itemize}\compresslist
     \item Copernicus is the European Union's earth observation programme
     \item Data from multiple sources: earth observation, satellites and in situ sensors
     \item Thematic areas: land, marine, atmosphere, \emph{climate change},
         emergency management, security
     \item Users: policymakers and public authorities
-  \end{enumerate}
+  \end{itemize}
 
 }
 
@@ -148,7 +148,7 @@
   \includegraphics[width=0.5\linewidth]{c3s-global-average-tas}
   \includegraphics[width=0.3\linewidth]{c3s-usage}
 
-  \begin{enumerate}\compresslist
+  \begin{itemize}\compresslist
     \item Information for monitoring and predicting climate change
     \item Helps to support adaptation and mitigation
     %\item The service will provide access to several climate indicators
@@ -157,10 +157,10 @@
       metrics and manipulation tools and receive outputs
       tailored to their needs
     \item Products for coastal, water, insurance and energy sectors
-  \end{enumerate}
+  \end{itemize}
 
   Users benefits are:
-  \begin{enumerate}\compresslist
+  \begin{itemize}\compresslist
     \item no need to download and store large data sets
     \item data access from anywhere
     \item easily performing the same analysis for several datasets
@@ -169,7 +169,7 @@
     \item pre-defined functionalities for reducing programming work-load
     \item easier usability of climate model data by tailored tools
       for specific sectors (insurance, water, energy, coastal)
-  \end{enumerate}
+  \end{itemize}
 }
 
 
@@ -179,11 +179,11 @@
   \center
   \includegraphics[width=0.7\linewidth]{cds}
 
-  \begin{enumerate}\compresslist
+  \begin{itemize}\compresslist
     \item A climate data store will contain the geophysical information needed to analyse the climate change indicators in a consistent and harmonised way.
     \item This will combine the functions of a distributed data centre with a set of services and facilities for users and content developers.
     \item The store will provide data resources and computing facilities that can be utilised, for example, to develop improved climate reanalyses and seasonal forecasts.
-  \end{enumerate}
+  \end{itemize}
 }
 
 
@@ -205,7 +205,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \headerbox{Outlook}{name=outlook,column=0,span=1,below=references}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \begin{enumerate}\compresslist
+  \begin{itemize}\compresslist
     \item C3S overview and C3S Climate Data Store (CDS)
     \item The CP4CDS project overview: ESGF Data Nodes, Index Nodes and CP4CDS Compute Nodes, load-balancing across sites, QC'd CMIP5 data.
     \item Requirement to deploy code from other projects/groups into the CP4CDS Compute Node, such as ESMValTool.
@@ -214,7 +214,7 @@
     \item SDDS/Compute Node overview: including PyWPS cluster configuration for scalability.
     \item SDDS workflow: template, GitHub fork etc
     \item Status and next steps
-  \end{enumerate}
+  \end{itemize}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -249,7 +249,7 @@
    \begin{multicols}{2}
      \includegraphics[width=0.7\linewidth]{cp4cds}
 
-     \begin{enumerate}\compresslist
+     \begin{itemize}\compresslist
        \item An extended ESGF sub-system populated and configured to support the Copernicus Data Store
        \item identifying, acquiring and quality controlling the relevant data
        \item data nodes - consisting of vanilla ESGF index and data nodes
@@ -258,7 +258,7 @@
        \item All web-service access will require users to be authenticated and authorised
        \item Federated data nodes
        \item Data store with CMIP5 and CORDEX data - selected for C3S and quality checked
-     \end{enumerate}
+     \end{itemize}
    \end{multicols}
  }
 
@@ -268,7 +268,7 @@
   \begin{multicols}{2}
     \includegraphics[width=0.7\linewidth]{copernicus-wps}
     \includegraphics[width=0.7\linewidth]{pywps-scheduler-extension}
-    \begin{enumerate}\compresslist
+    \begin{itemize}\compresslist
       \item OGC WPS standard based interface to processing functionalities deployed at CP4CDS data centers
       \item deployed near to the high volume climate data archives
       \item A WPS request (HTTP GET/POST) comes from a WPS client.
@@ -279,7 +279,7 @@
       \item WPS Processes are defined for ESMValTool diagnostics
       \item ESMValTool has read- only access to the climate data pool on
         file-system with CMIP5 climate model and observational data.
-    \end{enumerate}
+    \end{itemize}
   \end{multicols}
 }
 
@@ -287,10 +287,13 @@
 \headerbox{Technology}{name=tech,column=1,span=2,below=arch}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \begin{multicols}{2}
-    \begin{multicols}{2}
-      \includegraphics[width=0.5\linewidth]{pywps}
-      \vfill
-      \begin{enumerate}\compresslist
+  \begin{minipage}{0.5\textwidth}
+
+    \begin{minipage}{0.2\textwidth}
+      \includegraphics[width=\linewidth]{pywps}
+    \end{minipage}
+    \begin{minipage}{0.8\textwidth}
+      \begin{itemize}\compresslist
         \item Python implementation of OGC Web Processing Standard
         \item Easy to hack (developer friendly)
         \item OSGeo accreditation around the corner \ldots
@@ -300,13 +303,14 @@
         % \item Easy to hack (developer friendly)
         % \item Relevant contributions by over a dozen individuals
         % \item OSGeo accreditation around the corner \ldots
-      \end{enumerate}
-    \end{multicols}
+      \end{itemize}
+    \end{minipage}
 
-    \begin{multicols}{2}
-      \includegraphics[width=0.5\linewidth]{nginx}
-      \vfill
-      \begin{enumerate}\compresslist
+    \begin{minipage}{0.2\textwidth}
+      \includegraphics[width=\linewidth]{nginx}
+    \end{minipage}
+    \begin{minipage}{0.8\textwidth}
+      \begin{itemize}\compresslist
         \item Nginx - security, reverse proxy, load balancing
         \item Essentially a web (HTTP) server
         % \item But more used for reverse-proxy
@@ -314,53 +318,78 @@
         \item Redirects requests to Gunicorn
         % \item Can redirect to multiple Gunicorns
         \item Gateway to multiple servers and applications from a single URL
-      \end{enumerate}
-    \end{multicols}
+      \end{itemize}
+    \end{minipage}
 
-    \begin{multicols}{2}
-      \includegraphics[width=0.5\linewidth]{gunicorn}
-      \vfill
-      \begin{enumerate}\compresslist
+    \begin{minipage}{0.2\textwidth}
+      \includegraphics[width=\linewidth]{gunicorn}
+    \end{minipage}
+    \begin{minipage}{0.8\textwidth}
+      \begin{itemize}\compresslist
         \item Gunicorn - concurrency, WSGI
         \item WSGI - Common interface to multiple web applications frameworks
         %\item Easy to configure and use with Python
         %\item Promotes the concepts of ``workers''
         \item Each worker can run on a different CPU core
-      \end{enumerate}
-    \end{multicols}
+      \end{itemize}
+    \end{minipage}
 
-    %\includegraphics[width=0.2\linewidth]{gunicorn}
-    {\bf SUPERVISOR}
-    \begin{enumerate}\compresslist
-      \item Supervisor - A Process Control System
-      \item Monitor and control a number of processes on UNIX
-      \item Used to control processes related to a project
-    \end{enumerate}
+  \end{minipage}
+  \begin{minipage}{0.5\textwidth}
 
-    \includegraphics[width=0.2\linewidth]{conda}
-    \begin{enumerate}\compresslist
-      \item Python package manager
-      \item Environments
-    \end{enumerate}
+    \begin{minipage}{0.2\textwidth}
+      %\includegraphics[width=0.2\linewidth]{gunicorn}
+      {\bf SUPERVISOR}
+    \end{minipage}
+    \begin{minipage}{0.8\textwidth}
+      \begin{itemize}\compresslist
+        \item Supervisor - A Process Control System
+        %\item Monitor and control a number of processes on UNIX
+        \item Used to control processes related to a project
+      \end{itemize}
+    \end{minipage}
 
-    \includegraphics[width=0.1\linewidth]{ansible}
-    \begin{enumerate}\compresslist
-      \item Ansible - simple IT automation
-      \item Just a Python library - no services necessary
-      \item using ``ssh'' for remote deployments
-    \end{enumerate}
+    \begin{minipage}{0.2\textwidth}
+      \includegraphics[width=\linewidth]{conda}
+    \end{minipage}
+    \begin{minipage}{0.8\textwidth}
+      \begin{itemize}\compresslist
+        \item Python package manager
+        \item Environments
+      \end{itemize}
+    \end{minipage}
 
-    \includegraphics[width=0.2\linewidth]{docker}
-    \begin{enumerate}\compresslist
-      \item An OS level virtualisation engine
-      \item Docker runs software \textit{containers}
-    \end{enumerate}
+    \begin{minipage}{0.2\textwidth}
+      \includegraphics[width=0.5\linewidth]{ansible}
+    \end{minipage}
+    \begin{minipage}{0.8\textwidth}
+      \begin{itemize}\compresslist
+        \item Ansible - simple IT automation
+        \item Just a Python library - no services necessary
+        %\item using ``ssh'' for remote deployments
+      \end{itemize}
+    \end{minipage}
 
-    \includegraphics[width=0.4\linewidth]{esmvaltool}
-    \begin{enumerate}\compresslist
-      \item A community diagnostic and performance metrics tool for routine evaluation of Earth system models in CMIP
-      \item Collection of diagnostics implemented in Python and NCL
-    \end{enumerate}
+    \begin{minipage}{0.2\textwidth}
+      \includegraphics[width=\linewidth]{docker}
+    \end{minipage}
+    \begin{minipage}{0.8\textwidth}
+      \begin{itemize}\compresslist
+        \item An OS level virtualisation engine
+        \item Docker runs software \textit{containers}
+      \end{itemize}
+    \end{minipage}
+
+    \begin{minipage}{0.2\textwidth}
+      \includegraphics[width=\linewidth]{esmvaltool}
+    \end{minipage}
+    \begin{minipage}{0.8\textwidth}
+      \begin{itemize}\compresslist
+        \item A community diagnostic and performance metrics tool for routine evaluation of Earth system models in CMIP
+        \item Collection of diagnostics implemented in Python and NCL
+      \end{itemize}
+    \end{minipage}
+  \end{minipage}
   \end{multicols}
 }
 
@@ -384,7 +413,7 @@
     \end{center}
   \end{multicols}
 
-  % \begin{enumerate}\compresslist
+  % \begin{itemize}\compresslist
   %   \item Compute Node capable of hosting processing codes from external projects
   %   \item Compute Node will employ the Web Processing Service (WPS) standard
   %   \item CP4CDS project is developing a system for managing different software environments in a re-usable manner
@@ -398,7 +427,7 @@
   %   \item Conda as the tool to build reproducible software environments
   %   \item intend to employ Docker to provide the Compute Node through containers
   %   \item "production" environment run by the CP4CDS partners: STFC CEDA, IPSL and DKRZ.
-  % \end{enumerate}
+  % \end{itemize}
 }
 
 
