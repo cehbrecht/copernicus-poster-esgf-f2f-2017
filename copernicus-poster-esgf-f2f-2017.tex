@@ -262,33 +262,43 @@
    % Federated data nodes
    % Data store with CMIP5 and CORDEX data - selected for C3S and quality checked
 
-   \begin{minipage}[t]{0.5\textwidth}
-     \includegraphics[width=0.6\linewidth]{cp4cds}
+   \begin{minipage}{0.25\textwidth}
+     \includegraphics[width=0.8\linewidth]{cp4cds}
+   \end{minipage}
+   \begin{minipage}{0.75\textwidth}
      \begin{itemize}\compresslist
        \item Providing climate projections to the Climate Data Store of the
-        Climate Change Service portal hosted at ECMWF, UK 
+        Climate Change Service portal hosted at ECMWF, UK
        \item Data Node - consisting of vanilla \emph{Earth System Grid Federation} (ESGF) index and data node
        \item Compute Node - providing compute facilities using the Web Processing Service (WPS) standard interface
        \item Processing Backend - \emph{external software toolbox} to analyse climate model projections
-       \item Climate Projections in filesystem cache - selected for C3S and quality checked
-       \item \emph{Synda} Python library for managing data movement (replication)
+       \item Climate Projections in filesystem cache - selected for C3S and \emph{quality checked}
+       \item Replication - \emph{Synda} Python library for managing data movement
      \end{itemize}
+     \vspace{1em}
   \end{minipage}
-  \begin{minipage}[t]{0.25\textwidth}
-    \includegraphics[width=\linewidth]{cp4cds-federated}
+  \begin{minipage}{0.25\textwidth}
+    \includegraphics[width=0.8\linewidth]{cp4cds-federated}
+  \end{minipage}
+  \begin{minipage}{0.75\textwidth}
     \begin{itemize}\compresslist
       \item Geographically distributed highly available set of data and compute services
       \item Federated between the leading European institutes: CEDA, IPSL and DKRZ
+      \item CEDA is the default node, IPSL or DKRZ take over service when CEDA is not available
     \end{itemize}
+    \vspace{1em}
   \end{minipage}
-  \begin{minipage}[t]{0.25\textwidth}
-    \includegraphics[width=\linewidth]{cp4cds-toolbox}
+  \begin{minipage}{0.25\textwidth}
+    \includegraphics[width=0.8\linewidth]{cp4cds-toolbox}
+  \end{minipage}
+  \begin{minipage}{0.75\textwidth}
     \begin{itemize}\compresslist
       \item Toolbox with a \emph{Software Dependency and Deployment Solution} (SDDS)
       \item Supporting the development of codes which exploit the data and compute interfaces offered by CP4CDS
       \item Used to set-up CP4CDS nodes for CMIP5 (global) and CORDEX (regional) climate projections with
         a specific analysis toolbox.
     \end{itemize}
+    \vspace{1em}
   \end{minipage}
  }
 
