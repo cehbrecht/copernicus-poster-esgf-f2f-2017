@@ -13,7 +13,7 @@ See the [documentation](https://git-lfs.github.com/) on how to install this exte
 
 ## Build PDF
 
-Use the Makefile and just type:
+Use the ``Makefile`` and just type:
 
     $ make
 
@@ -25,9 +25,9 @@ Or:
 
 Diagrams are created using [draw.io](https://www.draw.io/):
 
-* [https://www.draw.io/#Hcehbrecht%2Fcopernicus-poster-esgf-f2f-2017%2Fmaster%2Fdraw.io%2Fcp4cds.xml](CP4CDS)
+* [CP4CDS](https://www.draw.io/#Hcehbrecht%2Fcopernicus-poster-esgf-f2f-2017%2Fmaster%2Fdraw.io%2Fcp4cds.xml)
 
-Diagrams (and exported PNG files) are in the folder ``draw.io``.
+Diagrams (and exported PNG files) are in the folder ``draw.io/``.
 
 
 ## Requirements
