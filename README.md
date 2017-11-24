@@ -1,6 +1,6 @@
 # Copernicus CP4CDS Poster for ESGF F2F 2017
 
-Copernicus WPS Poster for ESGF F2F meeting 2017 in San Francisco.
+Copernicus WPS Poster for [ESGF F2F meeting 2017](https://esgf.llnl.gov/) in San Francisco.
 
 This poster is generated with LaTeX.
 
