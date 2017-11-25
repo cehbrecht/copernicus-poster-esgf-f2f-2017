@@ -339,7 +339,8 @@
    \begin{minipage}{0.6\textwidth}
      {\bf CP4CDS Overview}
      \begin{itemize}\compresslist
-       \item Providing climate projections to the {\bf Climate Data Store} (CDS) of the
+       \item Providing the required data and services for global climate projections
+        to the {\bf Climate Data Store} (CDS) of the
         Climate Change Service (C3S) {\bf portal hosted at ECMWF, UK}
        \item Data Node - Consisting of vanilla {\bf Earth System Grid Federation} (ESGF) index and data node
        \item Compute Node - Providing compute facilities using the Web Processing Service (WPS) standard interface
@@ -349,7 +350,7 @@
        \item Replication - Using {\bf Synda} Python library for managing data movement
      \end{itemize}
   \end{minipage}
-  \vspace{1em}
+  %\vspace{1em}
 
   \begin{minipage}{0.4\textwidth}
     \includegraphics[width=0.8\linewidth]{cp4cds-interfaces}
@@ -373,8 +374,9 @@
       \item {\bf Geographically distributed and highly available} set of data and compute services
       \item Federated between the leading European institutes: CEDA, IPSL and DKRZ
       \item Using {\bf load-balancing across sites} / failover strategy
-      \item All sites of the {\bf same replicated local data pool}
-      \item All sites have the {\bf same (exact version) software stack} using a common software deployment ({\bf SDDS})
+      %\item Data available at all 3 sites, replicas synchronised
+      \item All 3 sites of the {\bf same replicated local data pool}
+      \item All 3 sites have the {\bf same (exact version) software stack} using a common software deployment ({\bf SDDS})
       \item {\bf CEDA hosts the main node}, IPSL and DKRZ take over service when needed
     \end{itemize}
   \end{minipage}
