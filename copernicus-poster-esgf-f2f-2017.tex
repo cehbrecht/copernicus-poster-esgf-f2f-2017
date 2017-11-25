@@ -153,7 +153,7 @@
   \center
   \includegraphics[width=12em]{c3s-logo}
   \includegraphics[width=0.5\linewidth]{c3s-global-average-tas}
-  \includegraphics[width=0.3\linewidth]{c3s-usage} \\
+  \includegraphics[width=0.4\linewidth]{c3s-usage} \\
 
 
   \begin{itemize}\compresslist
@@ -185,7 +185,7 @@
 \headerbox{Climate Data Store (CDS)}{name=cds,column=0,span=1,below=c3s}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \center
-  \includegraphics[width=0.7\linewidth]{cds}
+  \includegraphics[width=0.6\linewidth]{cds}
 
   % The Climate Data Store (CDS) will provide software (its toolbox) to allow users to develop their own applications,
   % making use of the CDS content to analyse, monitor and predict the patterns of both climate drivers and their impacts.
@@ -302,11 +302,11 @@
    %
    % All Functionality deployed through web service interfaces; simple portals to support Lot 2 developers, and show capabilities to help CDS developers
 
-   \begin{minipage}{0.3\textwidth}
+   \begin{minipage}{0.4\textwidth}
      \includegraphics[width=0.8\linewidth]{cp4cds}
    \end{minipage}
-   \begin{minipage}{0.7\textwidth}
-     CP4CDS Overview
+   \begin{minipage}{0.6\textwidth}
+     {\bf CP4CDS Overview}
      \begin{itemize}\compresslist
        \item Providing climate projections to the {\bf Climate Data Store} (CDS) of the
         Climate Change Service (C3S) portal hosted at ECMWF, UK
@@ -314,77 +314,81 @@
        \item Compute Node - Providing compute facilities using the Web Processing Service (WPS) standard interface
        \item Processing Backend - {\bf External software toolbox} to analyse climate model projections
        \item Climate Model Projections (CMIP5, CORDEX) in filesystem cache
-       \item Quality Control - Climate Model is selected for C3S and quality checked
+       \item Quality Control - {\bf Climate Model Projections} are selected for C3S and {\bf quality checked}
        \item Replication - Using {\bf Synda} Python library for managing data movement
      \end{itemize}
-     \vspace{2em}
   \end{minipage}
-  \begin{minipage}{0.3\textwidth}
+  \vspace{1em}
+
+  \begin{minipage}{0.4\textwidth}
     \includegraphics[width=0.8\linewidth]{cp4cds-interfaces}
   \end{minipage}
-  \begin{minipage}{0.7\textwidth}
-    Service Interfaces exposed to Climate Data Store (CDS)
+  \begin{minipage}{0.6\textwidth}
+    {\bf Service Interfaces exposed to Climate Data Store (CDS)}
     \begin{itemize}\compresslist
-      \item Web Processing Service (WPS) - standard interface for processing
+      \item {\bf Web Processing Service} (WPS) - standard interface for processing
       \item OpenDAP - remote data access interface for NetCDF files
       \item ESG Search - adapted Solr search interface by ESGF for data discovery
     \end{itemize}
-    \vspace{2em}
  \end{minipage}
- \begin{minipage}{0.3\textwidth}
+ \vspace{1em}
+
+ \begin{minipage}{0.4\textwidth}
     \includegraphics[width=0.8\linewidth]{cp4cds-federated}
   \end{minipage}
-  \begin{minipage}{0.7\textwidth}
-    Federated CP4CDS Nodes
+  \begin{minipage}{0.6\textwidth}
+    {\bf Federated CP4CDS Nodes}
     \begin{itemize}\compresslist
-      \item Geographically distributed highly available set of data and compute services
+      \item {\bf Geographically distributed and highly available} set of data and compute services
       \item Federated between the leading European institutes: CEDA, IPSL and DKRZ
-      \item Using load-balancing across sites / failover strategy
-      \item CEDA hosts the main node, IPSL or DKRZ take over service when needed
+      \item Using {\bf load-balancing across sites} / failover strategy
+      \item All sites of the {\bf same replicated local data pool}
+      \item All sites have the {\bf same (exact version) software stack} using a common software deployment ({\bf SDDS})
+      \item {\bf CEDA hosts the main node}, IPSL and DKRZ take over service when needed
     \end{itemize}
-    %\vspace{2em}
   \end{minipage}
+  %\vspace{2em}
  }
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \headerbox{Architecture}{name=arch,column=1,span=2,below=cp4cds}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \begin{minipage}{0.3\textwidth}
+  \begin{minipage}{0.4\textwidth}
     \includegraphics[width=\linewidth]{cp4cds-wps}
   \end{minipage}
-  \begin{minipage}{0.7\textwidth}
+  \begin{minipage}{0.6\textwidth}
     \begin{itemize}\compresslist
       \item A WPS request (HTTP GET/POST) comes from a WPS client.
-      \item The Nginx/Gunicorn combination delegates the request to the PyWPS WSGI application
+      \item The {\bf Nginx/Gunicorn combination} delegates the request to the PyWPS WSGI application
       \item Gunicorn - spawns several workers to use the available CPUs on a single compute node
-      \item PyWPS - Python implementation of OGC Web Processing Standard
+      \item {\bf PyWPS} - Python implementation of OGC Web Processing Standard
       \item Supervisor - used to start/stop and monitor services
       \item Processing outputs and status documents are web accessible by the Nginx file-service
-      \item Token based access control (using OAuth) for WPS service
-      \item WPS Processes are defined for project analysis toolbox, like MAGIC/ESMValTool diagnostics
+      \item {\bf Token based access control} (using OAuth) for WPS service
+      \item WPS Processes are defined for project analysis toolbox, like {\bf C3S MAGIC} diagnostics
       \item Procssing Backend has read-only access to the climate data pool on
         file-system with CMIP5 climate model projections and observational data.
-      \item Using PyWPS scheduler extension (Slurm, GridEngine) to run process on a compute-cluster for scalability
+      \item Using {\bf PyWPS scheduler extension} (Slurm, GridEngine) to run process on a compute-cluster for scalability
     \end{itemize}
   \end{minipage}
   %\vspace{1em}
 
-  % \begin{minipage}{0.3\textwidth}
+  % \begin{minipage}{0.4\textwidth}
   %   \includegraphics[width=\linewidth]{pywps-scheduler-extension}
   % \end{minipage}
-  % \begin{minipage}{0.7\textwidth}
+  % \begin{minipage}{0.6\textwidth}
   %   \begin{itemize}\compresslist
   %     \item PyWPS Scheduler Extension
   %   \end{itemize}
   % \end{minipage}
 
-  % \begin{minipage}{0.3\textwidth}
+  % \begin{minipage}{0.4\textwidth}
   %   \includegraphics[width=0.2\linewidth]{conda}
   %   \includegraphics[width=0.1\linewidth]{ansible}
   %   \includegraphics[width=0.4\linewidth]{chaos}
   % \end{minipage}
-  % \begin{minipage}{0.7\textwidth}
+  % \begin{minipage}{0.6\textwidth}
   %   \begin{itemize}\compresslist
   %     \item Using the Conda package manager to setup an environment with all used software components.
   %     \item Using Buildout/Ansible to setup a WPS (PyWPS) with all services (Supervisor, Gunicorn, Nginx)
@@ -394,11 +398,11 @@
   % \end{minipage}
   % \vspace{1em}
 
-  % \begin{minipage}{0.3\textwidth}
+  % \begin{minipage}{0.4\textwidth}
   %   \includegraphics[width=0.2\linewidth]{docker}
   %   \includegraphics[width=0.4\linewidth]{cp4cds-docker-cloud}
   % \end{minipage}
-  % \begin{minipage}{0.7\textwidth}
+  % \begin{minipage}{0.6\textwidth}
   %   \begin{itemize}\compresslist
   %     \item A Dockerfile is generated using the Buildout setup for each WPS service
   %     \item Docker images are build automatically on Docker Cloud
@@ -406,10 +410,10 @@
   % \end{minipage}
   % \vspace{1em}
 
-  % \begin{minipage}{0.3\textwidth}
+  % \begin{minipage}{0.4\textwidth}
   %   \includegraphics[width=\linewidth]{esmvaltool}
   % \end{minipage}
-  % \begin{minipage}{0.7\textwidth}
+  % \begin{minipage}{0.6\textwidth}
   %   \begin{itemize}\compresslist
   %     \item A community diagnostic and performance metrics tool for routine evaluation of Earth system models in CMIP
   %     \item Collection of diagnostics implemented in Python and NCL
@@ -451,11 +455,11 @@
   %   sectors (energy, insurance, water/hydrology and coastal areas) are
   %   facilitated by the software
 
-  \begin{minipage}{0.3\textwidth}
+  \begin{minipage}{0.4\textwidth}
     \includegraphics[width=\linewidth]{c3s-magic}
   \end{minipage}
-  \begin{minipage}{0.7\textwidth}
-    C3S MAGIC - data manipulation and analysis package
+  \begin{minipage}{0.6\textwidth}
+    {\bf C3S MAGIC - data manipulation and analysis package}
     \begin{itemize}\compresslist
       \item Used by CP4CDS as {\bf Processing Backend} for CMIP5 climate model projections
       \item To calculate standardized characteristics
@@ -494,23 +498,23 @@
 %\item Supporting the development of codes which exploit the data and compute interfaces offered by CP4CDS
 % \end{itemize}
 
-  \begin{minipage}{0.3\textwidth}
+  \begin{minipage}{0.4\textwidth}
     \includegraphics[width=\linewidth]{cp4cds-toolbox}
   \end{minipage}
-  \begin{minipage}{0.7\textwidth}
-    Software Dependency and Deployment Solution (SDDS) for CP4CDS Compute Nodes
+  \begin{minipage}{0.6\textwidth}
+    {\bf Software Dependency and Deployment Solution (SDDS) for CP4CDS Compute Nodes}
     \begin{itemize}\compresslist
-      \item Requirement - To deploy codes from external projects,
-        such as MAGIC/ESMValTool, into the CP4CDS Compute Node.
-      \item SDDS - Consists of a software environment and application, managed through a GitHub repository,
-        which includes a basic template (contributed by Birdhouse) of a working WPS service (PyWPS).
-      \item Conda -  The template uses a Conda ``environment'' to record the software dependencies
-        and to build a reproducible software installation.
-      \item Docker - Used to provide the Compute Node through containers.
-      \item Ansible - Ansible and Buildout are used to setup a WPS (PyWPS) with all services
-        (Supervisor, Gunicorn, Nginx) and configuration files.
+      \item Requirement - To {\bf deploy codes} from external projects,
+        such as {\bf C3S MAGIC / ESMValTool}, into the CP4CDS Compute Node
+      \item SDDS - Consists of a software environment and application, {\bf managed through a GitHub repository},
+        which includes {\bf a basic template (contributed by Birdhouse) of a working WPS service} (PyWPS)
+      \item {\bf Conda} -  The template uses a Conda ``environment'' to record the software dependencies
+        and to build a reproducible software installation
+      \item {\bf Docker} - Used to provide the Compute Node through containers
+      \item {\bf Ansible} - Ansible and Buildout are used to setup a WPS (PyWPS) with all services
+        (Supervisor, Gunicorn, Nginx) and configuration files
       \item SDDS is used to set-up CP4CDS Compute Nodes for CMIP5 (global) and CORDEX (regional) climate projections with
-        a specific analysis toolbox.
+        a specific analysis toolbox
     \end{itemize}
     %\vspace{2em}
   \end{minipage}
