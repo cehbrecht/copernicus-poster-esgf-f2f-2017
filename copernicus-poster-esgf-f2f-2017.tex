@@ -203,7 +203,6 @@
   \end{itemize}
 }
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \headerbox{References}{name=references,column=0,below=cds}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -216,31 +215,63 @@
     \setlength{\baselineskip}{0.4em}					% Save space with longer lines
     \bibitem{c3s} Copernicus Climate Change Service,
       \url{http://climate.copernicus.eu/}
-    \bibitem{cds} Copernicus Climate Data Store,\\
-      \url{http://climate.copernicus.eu/climate-data-store}
-    \bibitem{magic} Development of C3S Software for data analysis of climate models,\\
-      {\smaller\url{http://climate.copernicus.eu/development-c3s-software-data-analysis-climate-models}}
-    \bibitem{cp4cds} CP4CDS on GitHub, \url{https://github.com/cp4cds}
+    %\bibitem{cds} Copernicus Climate Data Store,\\
+    %  \url{http://climate.copernicus.eu/climate-data-store}
+    %\bibitem{magic} Development of C3S Software for data analysis of climate models,\\
+    %  {\smaller\url{http://climate.copernicus.eu/development-c3s-software-data-analysis-climate-models}}
     \bibitem{cp4cds} Birdhouse, \url{http://bird-house.github.io/}
     \bibitem{esgf} ESGF, \url{https://esgf.llnl.gov/}
+    \bibitem{cp4cds} CP4CDS on GitHub, \url{https://github.com/cp4cds}
     \bibitem{esgf} C3S MAGIC, \url{https://github.com/c3s-magic}
   \end{thebibliography}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{Outlook}{name=outlook,column=0,span=1,below=references}{
+\headerbox{Status}{name=status,column=0,span=1,below=references}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  % \begin{itemize}\compresslist
+  %   \item C3S overview and C3S Climate Data Store (CDS)
+  %   \item The CP4CDS project overview: ESGF Data Nodes, Index Nodes and CP4CDS Compute Nodes,
+  %     load-balancing across sites, QC'd CMIP5 data.
+  %   \item Requirement to deploy code from other projects/groups into the CP4CDS Compute Node, such as ESMValTool.
+  %   \item Chosen technology: Birdhouse WPS environment
+  %   \item Why Birdhouse? python, open source, actively developed, good design, client/security components, PyWPS extensions.
+  %   \item SDDS/Compute Node overview: including PyWPS cluster configuration for scalability.
+  %   \item SDDS workflow: template, GitHub fork etc
+  %   \item Status and next steps
+  % \end{itemize}
   \begin{itemize}\compresslist
-    \item C3S overview and C3S Climate Data Store (CDS)
-    \item The CP4CDS project overview: ESGF Data Nodes, Index Nodes and CP4CDS Compute Nodes,
-      load-balancing across sites, QC'd CMIP5 data.
-    \item Requirement to deploy code from other projects/groups into the CP4CDS Compute Node, such as ESMValTool.
-    \item Chosen technology: Birdhouse WPS environment
-    \item Why Birdhouse? python, open source, actively developed, good design, client/security components, PyWPS extensions.
-    \item SDDS/Compute Node overview: including PyWPS cluster configuration for scalability.
-    \item SDDS workflow: template, GitHub fork etc
-    \item Status and next steps
-    \item Missing: mention C3S MAGIC toolbox with ESMValTool codes
+    %\item A Copernicus WPS demo service is available on GitHub (CP4CDS repo)
+    \item A basic WPS template for SDDS is available on GiHub (CP4CDS repo)
+    \item An updated version of ESMValTool is used in CP4CDS demo via Conda package
+    \item A PyWPS scheduler extension for Slurm and Grid-Engine was developed
+    \item A token-based security proxy for WPS services is available
+    \item A qualtiy checked CMIP5 data store is available at CEDA and partly replicated to other sites
+    \item An inital ESGF node federation is set-up at all three CP4CDS sites
+  \end{itemize}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headerbox{Next Steps}{name=next,column=0,span=1,below=status}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  % \begin{itemize}\compresslist
+  %   \item C3S overview and C3S Climate Data Store (CDS)
+  %   \item The CP4CDS project overview: ESGF Data Nodes, Index Nodes and CP4CDS Compute Nodes,
+  %     load-balancing across sites, QC'd CMIP5 data.
+  %   \item Requirement to deploy code from other projects/groups into the CP4CDS Compute Node, such as ESMValTool.
+  %   \item Chosen technology: Birdhouse WPS environment
+  %   \item Why Birdhouse? python, open source, actively developed, good design, client/security components, PyWPS extensions.
+  %   \item SDDS/Compute Node overview: including PyWPS cluster configuration for scalability.
+  %   \item SDDS workflow: template, GitHub fork etc
+  %   \item Status and next steps
+  % \end{itemize}
+  \begin{itemize}\compresslist
+    %\item A PyWPS scheduler extension to use a Docker container for each process execution request is planned
+    %\item Implementing the latest WPS 2.0.0 standard in PyWPS (WPS 1.0.0 + job-cancel funtion
+    \item Further integration of MAGIC codes
+    \item Roll-out of CP4CDS at all three sites
+    \item Improved SDDS - using a template generator, replacing Buildout by Ansible, deployment in Docker Cluster
+    \item Using ESGF OAuth service for security tokens
   \end{itemize}
 }
 
@@ -331,7 +362,7 @@
       \item ESG Search - adapted Solr search interface by ESGF for data discovery
     \end{itemize}
  \end{minipage}
- \vspace{1em}
+ %\vspace{1em}
 
  \begin{minipage}{0.4\textwidth}
     \includegraphics[width=0.8\linewidth]{cp4cds-federated}
@@ -349,7 +380,6 @@
   \end{minipage}
   %\vspace{2em}
  }
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \headerbox{Architecture}{name=arch,column=1,span=2,below=cp4cds}{
@@ -425,36 +455,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \headerbox{C3S MAGIC - Climate Data Analysis}{name=magic,column=1,span=2,below=arch}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  % Goal of the project
-  %
-  % Development of a data manipulation and analysis package:
-  %
-  % to calculte standardized characteristics
-  %     (metrics, statistics, time series) from available climate model output
-  % some of these characteristics are pre-defined, while others require user input
-  %
-  % Metrics:
-  %
-  %   To develop and deliver an enhanced version of the ESMValTool software
-  %   that computes and displays a wide set of performance metrics and diagnostics
-  %   relevant for sectoral information services
-  %
-  % Multi-model products:
-  %
-  %   To combine the climate information generated by various climate models
-  %   into a single estimate of any future climate signal that is optimally suited
-  %   to provide the requested (sectoral) climate change information
-  %
-  % Climate index time-series:
-  %
-  %   To compute single-model and multi-model time series of climate indices,
-  %   for both pre-defined indices and indices defined interactively by the user
-  %
-  % Tailored products:
-  %
-  %   To assure that specific needs of envisaged end users in the selected economic
-  %   sectors (energy, insurance, water/hydrology and coastal areas) are
-  %   facilitated by the software
 
   \begin{minipage}{0.4\textwidth}
     \includegraphics[width=\linewidth]{c3s-magic}
@@ -462,7 +462,7 @@
   \begin{minipage}{0.6\textwidth}
     {\bf C3S MAGIC - data manipulation and analysis package}
     \begin{itemize}\compresslist
-      \item Developed by KNMI, eScience Center, DLR and others
+      \item {\bf Developed by KNMI, eScience Center, DLR} and others
       \item Used by CP4CDS as {\bf Processing Backend} for CMIP5 climate model projections
       \item To {\bf calculate standardized characteristics}
           %(metrics, statistics, time series)
